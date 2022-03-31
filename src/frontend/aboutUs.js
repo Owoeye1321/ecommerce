@@ -8,11 +8,14 @@ import Footer from './footer'
 function AboutUs() {
     return(
             <div > 
-                  <Social />
-                    <Logo/>
-                    <Nav/>
+                    <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
+
+                        <Social />
+                        <Logo/>
+                        <Nav/>
+         </div>
                     <div className='row' id = {Styles.about}>
-                                <div className='col-sm-12 col-md-12 col-lg-12'>
+                                <div className='col-sm-12 col-md-12 col-lg-12' style ={{height:'350px'}}>
                                         <center>
                                             <p id = {Styles.intro} style = {{marginBottom:'100px'}}>Supplying agricultural product Faster and Smarter Than Ever Before.</p>
                                         

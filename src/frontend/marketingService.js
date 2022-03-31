@@ -9,10 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function MarketingService() {
     return(
         <div>
+  <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
 
-            <Social />
-            <Logo/>
-            <Nav/>
+                <Social />
+                <Logo/>
+                <Nav/>
+  </div>
             <div id = {Styles.Marketdiv}>
                                
                <p id = {Styles.intro} style = {{color:'lightgreen',marginLeft:'12px'}}>Marketing Service</p>

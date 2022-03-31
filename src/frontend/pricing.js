@@ -11,7 +11,7 @@ import Nav from './nav'
 import Logo from './logo'
 import Footer from './footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
-function Pricing() {
+function Pricing(props) {
     const [ color, setcolor ] = useState('lightblue'); 
 
     // handleCart = (e)=>{
@@ -20,13 +20,16 @@ function Pricing() {
     // }
     return( 
         <div>
+            <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
 
             <Social />
             <Logo/>
             <Nav/>
+            </div>
+
 
             <div id = {Styles.pricingDiv}>
-                <p style ={{fontSize:'50px',color:'white'}}> Addriggo foods shop</p>
+                <p style ={{fontSize:'40px',color:'white'}}> Addriggo foods shop</p>
                 <p style ={{fontSize:'20px',color:'white'}}>Purchase your food variety today </p>
                 
 

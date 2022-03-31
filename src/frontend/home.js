@@ -16,9 +16,12 @@ function FurtherContent() {
  
     return (
         <div>
-             <Social/>
-            <Logo/>
-            <Nav/>
+            <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
+
+                    <Social />
+                    <Logo/>
+                    <Nav/>
+            </div>
               <div className='row' id = {Styles.container}>
             <div className='col-sm-12 col-md-7 col-lg-7' id = {Styles.changeBackground}>
                     <center>

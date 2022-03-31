@@ -13,9 +13,12 @@ function ContactUs() {
         <div>
             
 
-            <Social />
-            <Logo/>
-            <Nav/>
+            <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
+
+                    <Social />
+                    <Logo/>
+                    <Nav/>
+            </div>
             <div className='row' id = {Styles.container}>
             <div className='col-sm-12 col-md-7 col-lg-7'>
                     <center>
@@ -54,7 +57,7 @@ function ContactUs() {
 
         <div id = {Styles.emptydiv}>
             <center>
-            <p id = {Styles.bigPhrase}>Contact Us</p>
+        <p id = {Styles.bigPhrase}>Contact  <span id = {Styles.us}>  Us</span> </p>
 
             </center>
          

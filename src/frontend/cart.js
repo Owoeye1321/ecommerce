@@ -1,16 +1,17 @@
-import Styles from './style.module.css'
-import Rice from  '../images/rice_two.jpg'
 import Social from './social'
 import Nav from './nav'
 import Logo from './logo'
 import Footer from './footer'
-function Cart() {
+function Cart(props) {
     return(
         <div>
 
-            <Social/>
-            <Logo/>
-            <Nav/>
+<div class = 'bg-light' style = {{paddingBottom:'10px'}}>
+
+        <Social />
+        <Logo/>
+        <Nav/>
+</div>
             <Footer/>
         </div>
     )
