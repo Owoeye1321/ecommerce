@@ -1,0 +1,297 @@
+#desktop_social{    
+    height: 50px;
+    margin-right: 100px;
+}
+#mobile_social{    
+    display:none;
+    height: 50px;
+    margin-right: 100px;
+}
+@media (max-width: 570px) {
+    #hidMe{
+        display: block;
+    }
+    #logo_div{
+        display:none;
+    }
+    
+    #desktop_social{    
+      display:none
+    }
+    #takeMe{
+        display: none;
+    }
+    #mobile_social{    
+        display:block;
+        height: 50px;
+        margin-right: 60px; 
+    }
+    #nav{
+        background-color: lightgreen;
+    }
+    #change{
+        color:white;
+        display: none;
+    }
+
+        #logo_div_mobile{
+            height:40px;
+            display:block;
+        }
+    #changeBackground{
+        background-image: url('../images/riceone.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        background-size: 100% 100%;
+    }
+    #container{
+        background-image: url('../images/riceone.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        background-size: 100% 100%;
+
+    }
+
+} 
+@media (min-width: 575px) {
+    #logo_div_mobile{
+        height:50px;
+        display:none;
+    }
+}
+
+
+
+  #productPrice{
+     width:80%;
+     margin-left: 8%;
+    
+     margin-top: 100px;
+  }
+  #productImage{
+      padding: 20px 20px 20px 20px;
+     
+  }
+  #productContent{
+    padding: 20px 20px 20px 20px;
+     
+  }
+  #emptydiv{
+      height:400px;
+      padding-top: 150px;
+      margin-top: 50px;
+      background-color: lightblue;
+
+  }
+#Marketdiv{
+    width:100%;
+    height:250px;
+    padding-top: 90px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    background-image:  url('../images/rice_two.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+  }
+
+  #bigPhrase{
+
+  color: #ffffff;
+  font-size: 60px;
+  }
+#social_div{
+    height: 30px;
+    width:30px;
+    padding-top: 5px;
+    float:left;
+    margin-top:10px;
+    margin-left: 20px;;
+    align-content: center;
+    border-radius:50px;
+    background-color: rgba(32, 226, 65, 0.84);
+}
+.establish{
+    font-size: 25px;
+}
+#about{ 
+    width:100%;
+    border-radius:10px;
+    margin-top:0px;
+    margin-left: 0px;
+    background-image:  url('../images/kegOil.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;background-size: 100% 100%;
+}
+#pricingDiv{
+    height: 300px;
+    width: 100%;
+    padding-left: 60px;
+    padding-top: 50px;
+    background-image:  url('../images/rice_one.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+
+}
+#socials{
+    height: 20px;
+    width: 20px;
+    margin-bottom: 5px;
+    
+}
+#partner{
+    float: left;
+    margin-top:13px;
+}
+#logo{
+    height:60px;
+    width:80px;
+    border-radius: 50%;
+    margin-left:10px;
+    margin-right: -15px;
+}
+#rightFloat{
+    float:right;
+    margin-top: 20px;
+
+}
+#leftFloat{
+    float:left;
+}
+#logo_div{
+
+    width: 300px;
+    height:80px;
+    margin-top: 0px;
+    margin-left: 30px;
+    padding:5px 5px 5px 5px;
+}
+#name{
+    
+    font-size: 20px;
+    
+}
+#navContainer{
+    height:50px;
+    width: 100%;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+#navlink{   
+    margin-right:7px;
+    color:black;
+}
+#container{
+    height:400px;
+    width:100%;
+    border-radius:10px;
+    margin-top:10px;
+    margin-left: 0px;
+    background-color:  rgba(32, 226, 65, 0.84);
+}
+#intro{
+    color:white;
+    font-size: 30px;
+    margin-top:60px;
+}
+#firstContent{
+    margin-top: 60px;
+
+}
+#contentHead{
+    font-size: 30px;
+
+}
+#note{
+    font-size: 15px;
+    margin-left: 10px;
+}
+#aboutNote{
+    font-size: 13px;
+}
+#FurtherContent{
+    width:100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-top: 40px;
+}
+#designContent{
+    height:570px;
+    margin-bottom: 30px;
+}
+#mainDesign{
+    width:90%;
+    height:100%;
+    background-color: white;
+    margin-left: 5%;
+}
+#greenDiv{
+    height:5px;
+    width:100%;
+    background-color: rgba(32, 226, 65, 0.84);
+}
+#designImage{
+    height:350px;
+    width:80%;
+    margin-top: 25px;
+    margin-left: 5%;
+    
+}
+#productName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 15px;;
+    color:rgba(32, 226, 65, 0.84);
+
+}
+#additionalText{
+    font-size:20px;
+}
+#cool{
+    height:450px;
+    width:100%;
+    margin-bottom: 100px;
+    animation-name: animDiv;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: none;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position-x:center;
+    background-position-y:center;
+    animation-delay: 10s;
+    background-image: url('../images/download-15.jpg')
+}
+@keyframes animDiv{
+ 20%{background-image: url('../images/download-14.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
+ 40%{background-image: url('../images/riceone.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
+ 80%{background-image: url('../images/download-10.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
+ 100%{background-image: url('../images/kegOil.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
+ 
+}
+#OtherContent{
+    width:100%;
+    height:450px;
+    margin-bottom: 100px;
+    padding-bottom: 30px;
+    padding-top: 80px;
+    background-color: aliceblue;
+    
+}
+#OurMission{
+    height: 400px;
+    padding-bottom: 50px;
+}
+#aboutMission{
+    height: 400px;
+    padding-bottom: 10px;
+}
+#bigText{
+    font-size:40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}   
