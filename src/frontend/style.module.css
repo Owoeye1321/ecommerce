@@ -236,10 +236,13 @@ to{color:green}
     height:100%;
     background-color: white;
     margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 5px rgb(227, 224, 224);
 }
 #greenDiv{
     height:5px;
     width:100%;
+    border-radius: 400px;
     background-color: rgba(32, 226, 65, 0.84);
 }
 #designImage{
@@ -265,7 +268,7 @@ to{color:green}
     width:100%;
     margin-bottom: 100px;
     animation-name: animDiv;
-    animation-duration: 5s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-timing-function: none;
     background-repeat: no-repeat;
@@ -277,8 +280,8 @@ to{color:green}
 }
 @keyframes animDiv{
  20%{background-image: url('../images/download-14.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
- 40%{background-image: url('../images/riceone.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
- 80%{background-image: url('../images/download-10.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
+ 40%{background-image: url('../images/semo_one.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
+ 80%{background-image: url('../images/oil_four.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
  100%{background-image: url('../images/kegOil.jpg');background-repeat: no-repeat;background-size: contain;width: 100%;background-size: 100% 100%;}
  
 }

@@ -70,9 +70,12 @@ function FurtherContent() {
             <div id = {Styles.FurtherContent} className = 'row bg-light'>
                     <div className='col-sm-12 col-md-4 col-lg-4' id = {Styles.designContent}>
                         <div  id = {Styles.mainDesign}>
-                                <div id = {Styles.greenDiv}>
+                            <center>
+                            <div id = {Styles.greenDiv}>
                                     
-                                </div>
+                            </div>
+                            </center>
+                                
                                 <div  id = {Styles.designImage}>
                                     <img alt = "icon" src = {bagRice} style = {{width:'100%',height:'100%'}}
                                     />
@@ -87,7 +90,7 @@ function FurtherContent() {
 
 
                    </div>
-                   <div className='col-sm-12 col-md-4  col-lg-4' id = {Styles.designContent}>
+                           <div className='col-sm-12 col-md-4  col-lg-4' id = {Styles.designContent}>
                         <div  id = {Styles.mainDesign}>
                                 <div id = {Styles.greenDiv}>
                                     

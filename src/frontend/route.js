@@ -1,15 +1,19 @@
 import { BrowserRouter as Router ,Routes, Route } from 'react-router-dom'
-import React, { Component } from 'react';
+import React from 'react';
 import Home from './home';
 import Cart from './cart'
 import About from './aboutUs'
 import Pricing from './pricing';
 import ContactUs from './contactUs';
 import MarketingService from './marketingService';
+//import Main from './main'
+import data from './data'
 
 
 function MyAppRouting() {
+    const { products } = data
     return(
+       
         <React.Fragment>
         <Router>
             <Routes> 
@@ -18,7 +22,7 @@ function MyAppRouting() {
                
                 <Route path='/marketingService' element = {<MarketingService/>}/>
                 
-                <Route path='/pricing' element = {<Pricing/>}/>
+                <Route path='/pricing' element = {<Pricing key = {products.id} products = {products}/>}/>
                  
                 <Route  path="/contactUs"  element = {<ContactUs/>}/>
 
