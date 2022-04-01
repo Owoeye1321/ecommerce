@@ -1,5 +1,5 @@
 import { BrowserRouter as Router ,Routes, Route } from 'react-router-dom'
-import React from 'react';
+import React, {useState} from 'react';
 import Home from './home';
 import Cart from './cart'
 import About from './aboutUs'
@@ -12,6 +12,18 @@ import data from './data'
 
 function MyAppRouting() {
     const { products } = data
+
+    const { cartItems, setCartItems } = useState([]);
+    const onAdd = (product) =>{
+        const exist = cartItems.find(x => x.id === product.id);
+        if (exist)
+        {
+                setCartItems(cartItems.map(x => x.id === product.id ? {...exist, qty: exist.qty +1 } : x))
+        }
+        else{
+                setCartItems([...cartItems, {...product,qty:1}])
+        }
+    }
     return(
        
         <React.Fragment>
@@ -22,7 +34,7 @@ function MyAppRouting() {
                
                 <Route path='/marketingService' element = {<MarketingService/>}/>
                 
-                <Route path='/pricing' element = {<Pricing key = {products.id} products = {products}/>}/>
+                <Route path='/pricing' element = {<Pricing key = {products.id} products = {products} onAdd= {onAdd}/>}/>
                  
                 <Route  path="/contactUs"  element = {<ContactUs/>}/>
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function Product(props) {
     const [ color, setcolor ] = useState('lightblue'); 
 
-    const {product} = props
+    const {product , onAdd} = props
     return(
 
     <div className='row' id = {Styles.productPrice}>
@@ -26,6 +26,7 @@ export default function Product(props) {
                       }} onMouseLeave = {() =>{
                           setcolor('lightblue')
                       }}
+                      onClick={()=>{onAdd(product)}}
                       >ADD TO CART</button>
                  
 

@@ -9,20 +9,20 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function Footer() {
     const [ color, setcolor ] = useState('lightblue'); 
     return(
-        <div class = 'row bg-light'  style = {{marginTop:'50px'}}>
-        <div class = 'col- sm-12 col-md-6 col-lg-6' style={{paddingLeft:'70px'}}>
+        <div className = 'row bg-light'  style = {{marginTop:'50px'}}>
+        <div className = 'col- sm-12 col-md-6 col-lg-6' style={{paddingLeft:'70px'}}>
             <ul style = {{marginTop:'50px'}}>
-                <li class = 'nav nav-item'>
-                    <a class = 'nav-link' href = 'contactUs' style = {{color:'black',marginBottom:'20px'}}>Contact Us</a>
+                <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = 'contactUs' style = {{color:'black',marginBottom:'20px'}}>Contact Us</a>
                 </li>
-                <li class = 'nav nav-item'>
-                    <a class = 'nav-link' href = 'marketingService' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Marketing service</a>
+                <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = 'marketingService' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Marketing service</a>
                 </li>
-                <li class = 'nav nav-item'>
-                    <a class = 'nav-link' href = 'pricing' style = {{color:'black',marginBottom:'20px'}}>Pricing</a>
+                <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = 'pricing' style = {{color:'black',marginBottom:'20px'}}>Pricing</a>
                 </li>
-                <li class = 'nav nav-item'>
-                    <a class = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'20px'}}>About Us</a>
+                <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'20px'}}>About Us</a>
                 </li>
                 <div id = {styles.mobile_social}>
                <div id = {styles.rightFloat}>

@@ -6,7 +6,8 @@ import Footer from './footer'
 import Product from './product';
 import 'bootstrap/dist/css/bootstrap.min.css'
 function Pricing(props) {
-    const { products } = props
+    const { products, onAdd } = props
+   
 
     return( 
         <div>
@@ -25,7 +26,7 @@ function Pricing(props) {
             <div>
                     {products.map((product)=>{
                         return(
-                         <Product key = {product.id} product = {product}></Product>
+                         <Product key = {product.id} product = {product} onAdd = {onAdd}></Product>
                         )
                        
                     })}
