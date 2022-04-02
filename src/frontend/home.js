@@ -11,7 +11,6 @@ import Footer from './footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 function FurtherContent() {
 
-    const [ color, setcolor ] = useState('black'); 
     const [opacity, setOpacity]= useState(1)
  
     return (
@@ -31,11 +30,8 @@ function FurtherContent() {
                                  <button className='btn btn' 
                                  style = {{borderRadius : "40px" ,
                                  width: "170px" , border:'1px solid white', 
-                                 color:color}} onMouseEnter = {()=>{
-                                     setcolor('white')
-                                 }} onMouseLeave={()=>{
-                                     setcolor('black')
-                                 }}>Start Here</button>
+                                 color:'white'}}
+                                 >Start Here</button>
                         </a>
                  
                     </center>

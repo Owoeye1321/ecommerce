@@ -28,7 +28,7 @@ function MyAppRouting() {
        
        
         
-            <HashRouter> 
+            <HashRouter base = '/'> 
 
            <Home/>
             {/* <Route path='/aboutUs'  component = {About}/>

@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function Footer() {
     const [ color, setcolor ] = useState('lightblue'); 
     return(
-        <div className = 'row bg-light'  style = {{marginTop:'50px'}}>
+        <div id = {styles.redLeft} className = 'row bg-light'  style = {{marginTop:'50px'}}>
         <div className = 'col- sm-12 col-md-6 col-lg-6' style={{paddingLeft:'70px'}}>
             <ul style = {{marginTop:'50px'}}>
                 <li className = 'nav nav-item'>
