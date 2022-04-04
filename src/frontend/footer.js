@@ -24,19 +24,20 @@ function Footer() {
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'20px'}}>About Us</a>
                 </li>
-                <div id = {styles.mobile_social}>
-               <div id = {styles.rightFloat}>
+                <div id = {styles.mobile_social} >
+               <div id = {styles.rightFloat} style ={{marginRight:'45px',marginTop:'-10px'}}>
 
                <div  id = {styles.partner}>
                    <a href = "#">
                       <button  className='btn btn-light' style = 
                       {{borderRadius : "40px" ,width: "150px",border:'none',
-                      background:color,marginTop:'-6px'}} onMouseEnter ={()=>{
+                      background:color,height:'30px'}} onMouseEnter ={()=>{
                           setcolor('lightgreen')
                       }} onMouseLeave = {() =>{
                           setcolor('lightblue')
                       }}>Partners</button>
                    </a>
+                   <br/>
                  
 
                </div>

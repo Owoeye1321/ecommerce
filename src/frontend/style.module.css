@@ -9,7 +9,7 @@
 }
 @media (max-width: 570px) {
     #redLeft{
-        margin-left: -70px;
+        margin-left: -100px;
     }
     #hidMe{
         display: block;
@@ -27,10 +27,18 @@
     #mobile_social{    
         display:block;
         height: 50px;
-
     }
     #nav{
-        background-color: lightgreen;
+        background-color: white;
+        box-shadow: 2px 3px 3px 3px lightgray;
+    }
+    #rightFloat{
+        margin-left: -100px;
+    
+    }
+    #name{
+        color:black;
+        margin-left: 100px;
     }
     #change{
         color:white;
@@ -168,7 +176,7 @@ to{color:green}
 }
 #rightFloat{
     float:right;
-    margin-top: 20px;
+   
 
 }
 #leftFloat{

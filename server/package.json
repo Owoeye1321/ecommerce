@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "api": "^4.2.1",
+    "express-generator": "^4.16.1"
+  },
+  "name": "index",
+  "version": "1.0.0",
+  "description": "my e-commerce app server",
+  "main": "routes.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "owoeye",
+  "license": "ISC"
+}
