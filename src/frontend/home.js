@@ -3,7 +3,7 @@ import indomie from '../images/indomie_one.jpg'
 import kegOil from '../images/oil_four.jpg'
 import React, { useState } from 'react';
 import Styles from './style.module.css'
-import Rice from  '../images/rice_two.jpg'
+import one from  '../images/one.jpeg'
 import Social from './social'
 import Nav from './nav'
 import Logo from './logo'
@@ -45,7 +45,7 @@ function FurtherContent() {
                     </center>
             </div>
             <div className='col-sm-12 col-md-5 col-lg-5' id = {Styles.takeMe}>
-            <img  alt = "icon" src = {Rice} 
+            <img  alt = "icon" src = {one} 
             style = {{width:'100%',height:'400px',opacity:opacity,marginLeft:'12px'}}
             onMouseEnter ={()=>{
                 setOpacity(0.9)
