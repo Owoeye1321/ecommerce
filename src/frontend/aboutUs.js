@@ -18,6 +18,7 @@ function AboutUs() {
                                 <div className='col-sm-12 col-md-12 col-lg-12' style ={{height:'350px'}}>
                                         <center>
                                             <p id = {Styles.intro} style = {{marginBottom:'100px'}}>Supplying agricultural product Faster and Smarter Than Ever Before.</p>
+                                            <h3 id = {Styles.mobile_coont}> Nutrient Satisfaction Goals</h3>
                                         
                                         
 

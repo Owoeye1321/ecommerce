@@ -17,7 +17,7 @@ function MarketingService() {
   </div>
             <div id = {Styles.Marketdiv}>
                                
-               <p id = {Styles.intro} style = {{color:'lightgreen',marginLeft:'12px'}}>Marketing Service</p>
+               <p id = {Styles.introducing} style = {{color:'lightgreen',marginLeft:'12px',marginBottom:'20px'}}>Marketing Service</p>
                                
              </div>
              <div className = 'row' >
@@ -27,9 +27,9 @@ function MarketingService() {
                 </center>
                    
             </div>
-            <div className = 'col-sm-12 col-md-6 col-lg-6' >
+            <div className = 'col-sm-12 col-md-6 col-lg-6' style = {{width:'90%',marginLeft:'4%'}}>
                
-                <p id = {Styles.note} style = {{fontSize:'15px',marginRight:'85px'}}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
+                <p id = {Styles.note} style = {{fontSize:'15px'}}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
                 competitors and the market .Addriggo product provides more actionable insights into how to optimize your nutrient plan. Addriggo chips guarantee you that
                 you will receive the best protein possible satisfaction goal with the added benefits of quantity size.</p>
 

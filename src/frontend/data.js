@@ -4,6 +4,7 @@ import spag from '../images/images-8.jpg'
 import indomie from '../images/indomie_one.jpg'
 import palmOil from '../images/oil_two.jpg'
 import semo from '../images/semo_two.jpg'
+import chips from '../images/one.jpeg'
 const data = {
     products: [
         {
@@ -54,7 +55,16 @@ const data = {
             image: semo,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
+        },
+        {
+            id: '7',
+            name: 'Chips',
+            price: '4,000',
+            image: chips,
+            aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
+            otherContent: 'click add to cart to purchase product'
         }
+       
 
     ]
 };

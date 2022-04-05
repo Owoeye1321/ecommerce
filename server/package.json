@@ -3,13 +3,13 @@
     "api": "^4.2.1",
     "express": "^4.17.3",
     "express-generator": "^4.16.1"
-  },  
+  },
   "name": "index",
   "version": "1.0.0",
   "description": "my e-commerce app server",
   "main": "routes.js",
   "scripts": {
-  "start": "nodemon routes.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "owoeye",

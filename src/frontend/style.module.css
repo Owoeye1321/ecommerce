@@ -13,7 +13,6 @@
         display: block;
     }
     #largeDiv{
-        border:1px solid;
         margin-left: 10px;
         
     }
@@ -80,6 +79,11 @@
 
         display:none;
         }
+        #introducing{
+            color:white;
+            font-size: 30px;
+            margin-top:100px;
+        }
     #changeBackground{
         background-image: url('../images/one.jpeg');
         background-repeat: no-repeat;
@@ -109,7 +113,12 @@
     #intro{
         color:white;
         font-size: 30px;
-        margin-top:120px;
+        margin-top:100px;
+    }
+    #introducing{
+        color:white;
+        font-size: 30px;
+        margin-top:100px;
     }
     #contentHead{
         font-size: 30px;
