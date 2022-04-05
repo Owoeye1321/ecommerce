@@ -30,11 +30,11 @@ function Footer() {
                 <div id = {styles.mobile_social} >
                <div id = {styles.rightFloat} style ={{marginTop:'-10px'}}>
 
-               <div  id = {styles.partner} style = {{width :'30%'}}>
+               <div  id = {styles.partner} >
                    <a href = "#">
                       <button  className='btn btn-light' style = 
                       {{borderRadius : "40px" ,width: "150px",border:'none',
-                      background:color,height:'30px'}} onMouseEnter ={()=>{
+                      background:color,height:'40px'}} onMouseEnter ={()=>{
                           setcolor('lightgreen')
                       }} onMouseLeave = {() =>{
                           setcolor('lightblue')
