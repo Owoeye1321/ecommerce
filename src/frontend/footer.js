@@ -44,7 +44,7 @@ function Footer() {
                  
 
                </div>
-               <div style = {{float:'left'}}>
+               <div style = {{float:'right'}}>
                <div id = {styles.social_div}>
                    <center>
                         <a href = "#">
