@@ -26,7 +26,7 @@ function FurtherContent() {
             <div className='col-sm-12 col-md-7 col-lg-7' id = {Styles.changeBackground}>
                     <center>
                         <p id = {Styles.intro}>THERE IS A BETTER WAY TO ACHIEVE YOUR NUTRIENT SATISFACTION GOALS.</p>
-                        <h3 id = {Styles.mobile_coont}> Nutrient Satisfaction Goals</h3>
+                        <h4 id = {Styles.mobile_coont}> Nutrient Satisfaction Goals</h4>
                       <div id = {Styles.adjust}>
                         <a href = "marketingService">
                                  <button className='btn btn' 

@@ -28,9 +28,9 @@ function Footer() {
                     <a className = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'20px'}}>About Us</a>
                 </li>
                 <div id = {styles.mobile_social} >
-               <div id = {styles.rightFloat} style ={{marginTop:'-10px'}}>
+               <div style ={{marginTop:'-10px'}}>
 
-               <div  id = {styles.partner} >
+               <div  id = {styles.partner} style = {{float:'left'}} >
                    <a href = "#">
                       <button  className='btn btn-light' style = 
                       {{borderRadius : "40px" ,width: "150px",border:'none',
