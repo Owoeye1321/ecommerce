@@ -49,10 +49,8 @@
     
     }
     #adjust{
-        width: 90%;
-        padding-right: 230px;
+        width: 100%;
         margin-bottom: 20px;
-        margin-right:10%;
     }
     #name{
         color:black;
@@ -67,8 +65,7 @@
         font-size: 25px;
         padding-right: 40px;
         color:#ffffff;
-        width:80%;
-        margin-right:20%;
+        width:100%;
       
     }
 
