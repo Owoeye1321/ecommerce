@@ -9,8 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function Footer() {
     const [ color, setcolor ] = useState('lightblue'); 
     return(
-        <div id = {styles.redLeft} className = 'row bg-light'  style = {{marginTop:'50px',width:'100%'}}>
-            <div id = {styles.largeDiv}>
+        <div className = ' bg-light'  style = {{marginTop:'50px',width:'100%'}}>
+            <div className='row'  >
                 
           
         <div className = 'col- sm-12 col-md-6 col-lg-6'>
@@ -91,7 +91,7 @@ function Footer() {
 
 
         </div>
-        <div className = 'col-sm-12 col-md-6 col-lg-6'  >
+        <div className = 'col-sm-12 col-md-6 col-lg-6 '>
         <ul style = {{marginTop:'50px'}}>
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px'}}>Sponsors</a>

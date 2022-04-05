@@ -12,10 +12,7 @@
     #hidMe{
         display: block;
     }
-    #largeDiv{
-        margin-left: 10px;
-        
-    }
+ 
     #additionalText{
         font-size: 15px;
     }
@@ -101,6 +98,9 @@
 @media (min-width: 575px) {
     #logo_div_mobile{
         height:50px;
+        display:none;
+    }
+    #mobile_social{    
         display:none;
     }
     #additionalText{
@@ -217,7 +217,7 @@ to{color:green}
 }
 #partner{
     float: left;
-    margin-right: 30px;
+    margin-right: 5px;
     margin-top:10px;
 }
 #logo{
