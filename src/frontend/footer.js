@@ -9,8 +9,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function Footer() {
     const [ color, setcolor ] = useState('lightblue'); 
     return(
-        <div id = {styles.redLeft} className = 'row bg-light'  style = {{marginTop:'50px'}}>
-        <div className = 'col- sm-12 col-md-6 col-lg-6' style={{paddingLeft:'70px'}}>
+        <div id = {styles.redLeft} className = 'row bg-light'  style = {{marginTop:'50px',width:'100%'}}>
+            <div id = {styles.largeDiv}>
+                
+          
+        <div className = 'col- sm-12 col-md-6 col-lg-6'>
             <ul style = {{marginTop:'50px'}}>
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = 'contactUs' style = {{color:'black',marginBottom:'20px'}}>Contact Us</a>
@@ -25,9 +28,9 @@ function Footer() {
                     <a className = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'20px'}}>About Us</a>
                 </li>
                 <div id = {styles.mobile_social} >
-               <div id = {styles.rightFloat} style ={{marginRight:'45px',marginTop:'-10px'}}>
+               <div id = {styles.rightFloat} style ={{marginTop:'-10px'}}>
 
-               <div  id = {styles.partner}>
+               <div  id = {styles.partner} style = {{width :'30%'}}>
                    <a href = "#">
                       <button  className='btn btn-light' style = 
                       {{borderRadius : "40px" ,width: "150px",border:'none',
@@ -41,6 +44,7 @@ function Footer() {
                  
 
                </div>
+               <div style = {{float:'left'}}>
                <div id = {styles.social_div}>
                    <center>
                         <a href = "#">
@@ -73,6 +77,7 @@ function Footer() {
                    </center>
                 
                </div>
+               </div>
                
                    
                </div>
@@ -86,7 +91,7 @@ function Footer() {
 
 
         </div>
-        <div className = 'col-sm-12 col-md-6 col-lg-6'  style={{paddingLeft:'70px'}}>
+        <div className = 'col-sm-12 col-md-6 col-lg-6'  >
         <ul style = {{marginTop:'50px'}}>
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px'}}>Sponsors</a>
@@ -100,6 +105,7 @@ function Footer() {
 
 
 
+        </div>
         </div>
 
   

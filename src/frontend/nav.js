@@ -1,5 +1,5 @@
 import Styles from './style.module.css'
-import logo from '../images/logo.jpg'
+import two from  '../images/two.jpeg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Nav,  Navbar, NavDropdown } from 'react-bootstrap';
 import $  from 'jquery'
@@ -18,7 +18,7 @@ function Navigation() {
                 <Navbar.Brand   href="/">
                 <div id = {Styles.logo_div_mobile}>
         <div id = {Styles.leftFloat}>
-            <img id = {Styles.logo} alt = "icon" src = {logo} style ={{height:'40px',width:'40px',marginRight:'10px'}}/>
+            <img id = {Styles.logo} alt = "icon" src = {two} style ={{height:'40px',width:'40px',marginRight:'10px'}}/>
         </div>
 
         <div id = {Styles.rightFloat} style = {{marginTop:'5px',color:'white'}}>
