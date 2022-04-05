@@ -20,7 +20,7 @@ function ContactUs() {
                     <Nav/>
             </div>
             <div className='row' id = {Styles.container}>
-            <div className='col-sm-12 col-md-7 col-lg-7'>
+            <div className='col-sm-12 col-md-7 col-lg-7' >
                     <center>
                         <p id = {Styles.intro}>THERE IS A BETTER WAY TO ACHIEVE YOUR NUTRIENT SATISFACTION GOALS.</p>
                       
@@ -65,7 +65,7 @@ function ContactUs() {
  <div className = 'row' style={{marginTop: '30px;'}}>
                     <div className ="col-sm-12 col-md-6 col-lg-6" style = {{paddingTop:'80px',paddingLeft:'60px'}}>
                             <strong style = {{color:'black',fontSize:'35px'}}>Address</strong>
-                            <p>42,church avenue street<br/> alagdado lagos state <br/> nigeria and africa and other shogunle<br/> and oshodi</p>
+                            <p>Factory Address is at plot H 1-3,t<br/>Adriggo Road,<br/> Maigida Harmony  Estate,e<br/>Amoyo.</p>
                             <p style = {{color:'black',fontSize:'35px',font:'lighter',marginTop:'30px'}}>Email</p><br/>
                             <p  style = {{color:'black',fontSize:'25px',marginBottom:'-5px'}}>Sponsors</p>
                             <a href ="https://www.Owoeye1321@gmail.com" style = {{color:'blue',fontSize:'18px',textDecoration:'none'}}>Owoeye1321@gmail.com</a><br/><br/>

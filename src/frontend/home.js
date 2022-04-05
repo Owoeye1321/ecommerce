@@ -12,10 +12,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function FurtherContent() {
 
     const [opacity, setOpacity]= useState(1)
+    const [color, setColor ] = useState('white')
  
     return (
         <div>
-            <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
+            <div className = 'bg-light' style = {{paddingBottom:'10px'}}>
 
                     <Social />
                     <Logo/>
@@ -25,14 +26,21 @@ function FurtherContent() {
             <div className='col-sm-12 col-md-7 col-lg-7' id = {Styles.changeBackground}>
                     <center>
                         <p id = {Styles.intro}>THERE IS A BETTER WAY TO ACHIEVE YOUR NUTRIENT SATISFACTION GOALS.</p>
-                      
+                        <h3 id = {Styles.mobile_coont}> Nutrient Satisfaction Goals</h3>
+                      <div id = {Styles.adjust}>
                         <a href = "marketingService">
                                  <button className='btn btn' 
                                  style = {{borderRadius : "40px" ,
                                  width: "170px" , border:'1px solid white', 
-                                 color:'white'}}
+                                 color:color}}
+                                 onMouseEnter = {()=>{
+                                     setColor('black')
+                                 }}onMouseLeave = {()=>{
+                                     setColor('white')
+                                 }}
                                  >Start Here</button>
                         </a>
+                        </div>
                  
                     </center>
             </div>
@@ -55,7 +63,7 @@ function FurtherContent() {
         </div>
               <div id = {Styles.firstContent}>
             <center>
-                <strong id = {Styles.contentHead}> The best agricultural processed product available for prospect consumption</strong>
+                <strong id = {Styles.contentHead}> The best agricultural processed product<span style={{color:'lightgreen'}}>  available  </span>  for consumption</strong>
                 <p id = {Styles.note}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of<br/>
                 competitors and the market .Addriggo product provides more actionable insights into how to optimize your nutrient plan. Addriggo chips guarantee you that<br/>
                 you will receive the best protein possible satisfaction goal with the added benefits of quantity size.</p>
@@ -144,16 +152,16 @@ function FurtherContent() {
         <div id = {Styles.cool}>
 
 </div>
-<div class = 'row' >
-            <div class = 'col-sm-12 col-md-6 col-lg-6' id = {StyleSheet.OurMission}>
+<div className = 'row' >
+            <div className = 'col-sm-12 col-md-6 col-lg-6' id = {StyleSheet.OurMission}>
                 <center>
                 <p id = {Styles.bigText}>Our mission</p>
                 </center>
                    
             </div>
-            <div class = 'col-sm-12 col-md-6 col-lg-6' >
+            <div className = 'col-sm-12 col-md-6 col-lg-6' >
                
-                <p id = {Styles.note}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
+                <p id = {Styles.note} style = {{padding :'10px 10px 10px 10px'}}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
                 competitors and the market .Addriggo product provides more actionable insights into how to optimize your nutrient plan. Addriggo chips guarantee you that
                 you will receive the best protein possible satisfaction goal with the added benefits of quantity size.</p>
 

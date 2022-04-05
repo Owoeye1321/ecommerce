@@ -86,13 +86,13 @@ function Footer() {
 
 
         </div>
-        <div class = 'col-sm-12 col-md-6 col-lg-6'  style={{paddingLeft:'70px'}}>
+        <div className = 'col-sm-12 col-md-6 col-lg-6'  style={{paddingLeft:'70px'}}>
         <ul style = {{marginTop:'50px'}}>
-                <li class = 'nav nav-item'>
-                    <a class = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px'}}>Sponsors</a>
+                <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px'}}>Sponsors</a>
                 </li>
-                <li class = 'nav nav-item'>
-                    <a class = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Contact Developer</a>
+                <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Contact Developer</a>
                 </li>
                
               

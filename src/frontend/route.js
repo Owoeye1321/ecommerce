@@ -1,4 +1,4 @@
-import {HashRouter , Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route} from 'react-router-dom';
 import React, {useState} from 'react';
 import Home from './home';
 import Cart from './cart'
@@ -6,11 +6,10 @@ import About from './aboutUs'
 import Pricing from './pricing';
 import ContactUs from './contactUs';
 import MarketingService from './marketingService';
-//import Main from './main'
 import data from './data'
 
 
-function MyAppRouting() {
+function MyAppRouting() {   
     const { products } = data
 
     const { cartItems, setCartItems } = useState([]);
@@ -25,29 +24,37 @@ function MyAppRouting() {
         }
     }
     return(
-       
+       <div>
        
         
-            <HashRouter base = '/'> 
+            <Router> 
+              
+                    <Routes>
 
-           <Home/>
-            {/* <Route path='/aboutUs'  component = {About}/>
+                <Route exact path = '/' element = {<Home />}/>
+
+           
+               <Route path='/aboutUs'  element = {<About/>}/>
                
-                <Route path='/marketingService' component = {MarketingService}/>
+                <Route path='/marketingService' element = {<MarketingService/>}/>
                 
-                <Route path='/pricing'>
-                    <Pricing key = {products.id} products = {products} onAdd= {onAdd}/>
-                
-                </Route>
-                 
-                <Route  path="/contactUs"  component = {ContactUs}/>
-
-                <Route  path="/cart"  component = {Cart}/> */}
-
-                  
             
-            </HashRouter>
+                    <Route path='/pricing'  element = {< Pricing  key = {products.id} products = {products} onAdd= {onAdd}/> }/>
+                
+                 
+                <Route  path="/contactUs"  element = {<ContactUs/>}/>
+
+                <Route  path="/cart"  element = {<Cart/>}/>
+
+                </Routes>
+
          
+                
+
+            
+            </Router>
+         
+            </div>
                
       
     )
