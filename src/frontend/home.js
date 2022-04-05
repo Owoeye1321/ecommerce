@@ -141,7 +141,7 @@ function FurtherContent() {
                 <div id = {Styles.OtherContent}>
             <center>
             <p id = {Styles.contentHead}>How Addrigo foods can give better supply results from your demand</p>
-            <p>There has never been a better time to take your business to the next level. While many companies still spend weeks or months putting together their yearly <br/>
+            <p style = {{margin:'10px 10px 10px 10px '}}>There has never been a better time to take your business to the next level. While many companies still spend weeks or months putting together their yearly <br/>
             marketing strategies, our marketing consultants are skilled in using technology that can do this for you in a matter of minutes. Not only will you have the<br/>
             marketing strategy to promote your brand in the market, you will have all the key recommendations on a marketing plan that outlines what marketing <br/>
             activities your company needs to do to achieve your desired results.</p>
