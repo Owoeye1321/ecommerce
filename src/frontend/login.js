@@ -13,7 +13,6 @@ function LogIn() {
         const newData = {...data}
         newData[e.target.id] = e.target.value
         setData(newData)
-        console.log(newData)
     }
 
     const submit = async (e)=>{
@@ -50,7 +49,8 @@ function LogIn() {
                             <input onChange = {(e)=>handle(e)} value = {data.password} id="password" required className = "form-control"  style = {{
                                 width: "200px",
                                  marginTop: "10px",
-                                    borderRadius: "5px"
+                                    borderRadius: "5px",
+                                    marginBottom:"5px"
                             }} type="password"  placeholder="Password"/>
                             <div  id={styles.err} >
                                 <i style={{marginBottom:"-1px",color:'red'}}>{error}</i>

@@ -9,29 +9,27 @@ const con = mysqlConnection.createConnection({
     database: 'addriggo',
   })
 router.post('/', (req,res)=>{
-    con.connect((err)=>{
-        if (err) {
-            res.send('server issues')
-        }else{
+   
             const username = req.body.details.username
             const password = req.body.details.password
-            const sql = 'SELECT * from customers WHERE username = (?) AND password = (?)'
+            const sql = 'SELECT * from customers WHERE username = (?) AND password = (?)';
             con.query(sql, [username, password], (err, result) => {
                 if (err) {
                   console.log('unable to check data from the database' + err)   
-                } else {
-                  if (result == '') {
+                } else if (result == '') {
                     console.log('user does not exist')
                     res.send('Invalid details')
                   } else {
                     res.send('success')
                     console.log('user exist')
                   }
-                }
+                
+                
         })
-     }
+    
     })
     
+    
 
-})
+
 module.exports = router
