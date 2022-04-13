@@ -7,6 +7,38 @@
     height: 50px;
     margin-right: 100px;
 }
+
+  #logDiv {
+    margin-top: 5px;
+    height: 270px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    width: 290px;
+    border-radius: 15px;
+  }
+  #Namestyle {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  #err {
+    font-size: 10px;
+    margin-bottom: 0px;
+  }
+  #createNewSiteInfo {
+    border: 1px solid;
+    border-radius: 10px;
+    margin-top: 9px;
+    width: 290px;
+    padding: 2px 0px 2px 0px;
+  }
+  #textfont {
+    font-size: 13px;
+  }
+  #forget_password {
+    font-size: 14px;
+    margin-left: 90px;
+    text-decoration: none;
+  }
 @media (max-width: 570px) {
    
     #hidMe{

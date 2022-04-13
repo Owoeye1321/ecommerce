@@ -97,6 +97,10 @@ function Footer() {
                     <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px'}}>Sponsors</a>
                 </li>
                 <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = 'login' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Login</a>
+                </li>
+
+                <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Contact Developer</a>
                 </li>
                

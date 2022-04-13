@@ -1,17 +1,11 @@
 const express = require('express')
 const router = express.Router()
-router.get('/',(req, res ) =>{
-    res.status(200).json
-    ([{
-        id:1,
-        name:"users",
-        password:"password" 
-    },
-    {
-        id:2,
-        name:"users",
-        password:"password"
-    }])
+router.post('/',(req, res ) =>{
+    const username = req.body.username;
+    const password = req.body.password;
+    res.send('Welcome to user page')
+
+    
 })
 
 module.exports = router

@@ -5,12 +5,15 @@ export default function Basket() {
     const [people , setPeople ] = useState([])
 
 useEffect(()=>{
+    const controller = new AbortController()
+    const { signal } = controller
   const fetchPeople = async ()=>{
         const response =  await axios.get('/people')
         console.log(response.data)
-        setPeople(response.data)
+        setPeople([...people, response.data])
     }
     fetchPeople()
+    return()=> controller.abort()
 },[])
    
 
@@ -22,8 +25,8 @@ useEffect(()=>{
             
             {people.map((person)=>{
                 return(
-                    <li key={person.id}>
-                        <a href={person.url}>{person.name}</a></li>
+                
+                    <li key = "{person.id}">{person.name}</li>
                 )
             })}
            

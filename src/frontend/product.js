@@ -1,9 +1,23 @@
 import Styles from './style.module.css'
 import React, { useState } from 'react';
+import axios from 'axios';
 export default function Product(props) {
     const [ color, setcolor ] = useState('lightblue'); 
 
     const {product , onAdd} = props
+
+    const verify_and_Add_key = async()=>{
+        const response = await axios.get('/checkUser')
+        if(response.data === "invalid"){
+            window.location.assign("http://localhost:3000/login")
+        }else if(response.data = "valid"){
+            alert('hello world')
+        }
+      
+        console.log(product.id)
+        
+    }
+
     return(
 
     <div className='row' id = {Styles.productPrice}>
@@ -26,7 +40,7 @@ export default function Product(props) {
                       }} onMouseLeave = {() =>{
                           setcolor('lightblue')
                       }}
-                      onClick={()=>{onAdd(product)}}
+                      onClick={()=>{verify_and_Add_key()}}
                       >ADD TO CART</button>
                  
 
