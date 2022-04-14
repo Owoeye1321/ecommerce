@@ -19,13 +19,12 @@ router.post('/', (req,res)=>{
                 } else if (result == '') {
                     res.send('Invalid details')
                   } else {
-                    const session = req.session
-                    session.userId = req.body.details.username
+                    const sess = req.session
+                    sess.user = req.body.details.username
                   
-                    res.json({
-                      status:'success',
-                      session_name:session.userId
-                    })
+                    res.send(
+                     'success'
+                    )
                   }
                 
                 

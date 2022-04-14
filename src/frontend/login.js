@@ -29,15 +29,11 @@ function LogIn() {
                 console.log(response)
                 
             }
-           if (response.data.session_name) {
-                const user_session = response.data.session_name
-                const session_post = await axios.post('/checkUser',{
-                    session_name:user_session
-                })
-                if(session_post){
-                    alert('Welcome '+user_session)
+           if (response.data == 'success') {
+               
+                    alert('Welcome '+ details.username)
                     window.location.assign("http://localhost:3000/")
-                }
+              
             } 
         }   
         
