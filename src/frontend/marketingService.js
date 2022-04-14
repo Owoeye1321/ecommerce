@@ -17,7 +17,7 @@ function MarketingService() {
   </div>
             <div id = {Styles.Marketdiv}>
                                
-               <p id = {Styles.introducing} style = {{color:'lightgreen',marginLeft:'12px',marginBottom:'20px'}}>Marketing Service</p>
+               <p id = {Styles.introducing} style = {{color:'white',marginLeft:'12px',marginBottom:'20px'}}>Marketing Service</p>
                                
              </div>
              <div className = 'row' >

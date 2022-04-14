@@ -8,9 +8,10 @@ export default function Product(props) {
 
     const verify_and_Add_key = async()=>{
         const response = await axios.get('/checkUser')
-        if(response.data === "invalid"){
+        console.log(response)
+        if(response.data === "uncool"){
             window.location.assign("http://localhost:3000/login")
-        }else if(response.data = "valid"){
+        }else if(response.data = "cool"){
             alert('hello world')
         }
       

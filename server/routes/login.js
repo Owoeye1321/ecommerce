@@ -17,11 +17,15 @@ router.post('/', (req,res)=>{
                 if (err) {
                   console.log('unable to check data from the database' + err)   
                 } else if (result == '') {
-                    console.log('user does not exist')
                     res.send('Invalid details')
                   } else {
-                    res.send('success')
-                    console.log('user exist')
+                    const session = req.session
+                    session.userId = req.body.details.username
+                  
+                    res.json({
+                      status:'success',
+                      session_name:session.userId
+                    })
                   }
                 
                 

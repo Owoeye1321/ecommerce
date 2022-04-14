@@ -37,8 +37,8 @@ function SignUp() {
        }  
         
        else if(result.data == "success"){
-           alert("Signed Up Successfully")
-        window.location.assign("http://localhost:3000/pricing")
+           alert("Signed Up Successfully,login to continue")
+        window.location.assign("http://localhost:3000/login")
        }
        else if (result.data !== "success") {
         setColor('red')

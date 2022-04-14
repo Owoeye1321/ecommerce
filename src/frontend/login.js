@@ -22,11 +22,24 @@ function LogIn() {
             password:data.password
         }
         const response = await axios.post('/login',{details})
-        if (response.data == 'success') {
-                alert('logged in successfully')            
-        }else{
-           setError(response.data)
-        }
+        if (response){
+            if(response.data === 'Invalid details')
+            {
+                setError('invalid details')
+                console.log(response)
+                
+            }
+           if (response.data.session_name) {
+                const user_session = response.data.session_name
+                const session_post = await axios.post('/checkUser',{
+                    session_name:user_session
+                })
+                if(session_post){
+                    alert('Welcome '+user_session)
+                    window.location.assign("http://localhost:3000/")
+                }
+            } 
+        }   
         
     }
 

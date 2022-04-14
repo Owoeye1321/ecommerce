@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-router.get('/',(req, res )=>{
-   const session = req.session
-   if(session.userid){
-       res.send('valid')
+router.post('/',(req, res )=>{
+    const session_userId = req.body.session_name
+   if(session_userId ){
+       res.send("cool")
    }
    else{
-       res.send('invalid')
+    res.send("uncool")
    }
 })
 module.exports = router

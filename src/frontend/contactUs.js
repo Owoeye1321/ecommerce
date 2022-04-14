@@ -1,7 +1,7 @@
 import Footer from './footer'
 import React, { useState } from 'react';
 import Social from './social'
-import Rice from  '../images/rice_two.jpg'
+import Rice from  '../images/one.jpeg'
 import Styles from './style.module.css'
 import Nav from './nav'
 import Logo from './logo'
