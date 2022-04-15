@@ -7,23 +7,21 @@ export default function Product(props) {
 
     const verify_and_Add_key = async()=>{
         const response = await axios.get('/checkUser')
-        console.log(response)
         if(response.data === "invalid"){
             window.location.assign("http://localhost:3000/login")
 
         }else if(response.data = "valid")
         {
-            const userproduct =
-            {
+          
+
+            const addToCart = await axios.post('/addToCart',{
                 productId:product.id,
                 productName:product.name,
                 productPrice:product.price,
                 productImage:product.image,
-                productContent:product.content,
+                productContent:product.otherContent,
                 productAbout:product.aboutProduct
-            }
-
-            const addToCart = await axios.post('/addToCart',userproduct)
+            })
             if(addToCart.data === "success"){
                 alert(" Item added, Kindly proceed to cart and purchase item ")
                 window.location.assign("http://localhost:3000/cart")
