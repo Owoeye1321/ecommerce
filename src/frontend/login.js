@@ -64,7 +64,7 @@ function LogIn() {
                             <div  id={styles.err} >
                                 <i style={{marginBottom:"-1px",color:'red'}}>{error}</i>
                                 </div>
-                            <input style={{marginBottom:"-1px"}} className= "btn btn-outline-primary"  style = {{
+                            <input style={{marginBottom:"-1px"}} className= "btn btn-outline-primary"   style = {{
                                 width: "199px",
                                  marginTop: "10px",
                                     borderRadius: "5px"

@@ -1,24 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Social from './social'
 import Nav from './nav'
 import Logo from './logo'
 import Footer from './footer'
-import Basket from './basket'
+import axios from 'axios';
+function Cart() {
+        const [productId, setProductId] = useState()
+        const [productName, setproductName] = useState()
+        const [productPrice, setproductPrice] = useState()
+        const [productImage, setproductImage] = useState()
+        const [productContent, setproductContent] = useState()
+        const [aboutProduct, setaboutProduct] = useState()
 
-import data from './data'
-function Cart(props) {
-    const { product } = data
-    const { cartItems, setCartItems } = useState([]);
-    const onAdd = (product) =>{
-        const exist = cartItems.find(x => x.id === product.id);
-        if (exist)
-        {
-                setCartItems(cartItems.map(x => x.id === product.id ? {...exist, qty: exist.qty +1 } : x))
-        }
-        else{
-                setCartItems([...cartItems, {...product,qty:1}])
-        }
-    }
+        useEffect(() =>{
+                const fetchUserCarts = async ()=>{
+                        const response = await axios.get('/queryCart')
+                        if(response){
+                                console.log(response)
+                                setProductId(response.data.productId)
+                                setproductName(response.data.productName)
+                                setproductPrice(response.data.productPrice)
+                                setproductImage(response.data.productImage)
+                                setproductContent(response.data.productContent)
+                                setaboutProduct(response.data.aboutProduct)
+                        }
+
+                }
+                fetchUserCarts()
+        })
+        
+    
     return(
     <div>
 
@@ -28,8 +39,10 @@ function Cart(props) {
                 <Logo/>
                 <Nav/>
         </div>
-        <div style = {{marginLeft:'50px' , marginTop:'50px'}}>
-                <Basket cartItems = {cartItems} onAdd= {onAdd}/>
+        <div className='row' style = {{marginTop:'50px',marginLeft:'50px'}} >
+
+                
+            
         </div>
 
 

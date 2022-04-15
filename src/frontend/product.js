@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 export default function Product(props) {
     const [ color, setcolor ] = useState('lightblue'); 
-
     const {product , onAdd} = props
 
     const verify_and_Add_key = async()=>{
@@ -25,6 +24,12 @@ export default function Product(props) {
             }
 
             const addToCart = await axios.post('/addToCart',userproduct)
+            if(addToCart.data === "success"){
+                alert(" Item added, Kindly proceed to cart and purchase item ")
+                window.location.assign("http://localhost:3000/cart")
+            }else(
+                console.log(addToCart)
+            )
         }
       
        
