@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Styles from './style.module.css'
 import Social from './social'
 import Nav from './nav'
 import Logo from './logo'
@@ -42,10 +43,27 @@ function Cart() {
         <div className='row' style = {{marginTop:'50px',marginLeft:'50px'}} >
         {products.map((product)=>{
                         return(
-                                <li key={product.productId}> 
-                                <a href='#'>{product.productName}</a>
-                                <img alt ='icon' src={product.productImage}/>
-                                </li>
+                              
+                              
+                                        <div className='row' id = {Styles.productPrice}  key={product.productId}>
+                                        <div className='row-sm-12 col-md-5 col-lg-5' id = {Styles.productImage}>
+                                        <img name = 'productImage'  alt = "icon" src =  {product.productImage}
+                                                           style = {{width:'100%',height:'200px',marginLeft:'12px'}} />
+                                
+                                        
+                                        </div>
+                                        <div className='row-sm-12 col-md-7 col-lg-7' id = {Styles.productContent}>
+                                        <h3>{product.productName}</h3>
+                                        <h4 style ={{color:'lightgreen'}}>${product.productPrice}</h4>
+                                        <p style = {{fontSize:'10px'}}>{product.productAbout}</p>
+                                        <p style = {{fontSize:'10px'}}>{product.productContent}</p>
+                                        
+                                
+                                        
+
+                                        </div>
+                                    </div>
+                        
                         )
                        
                     })}
