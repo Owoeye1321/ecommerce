@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import React, {useState} from 'react';
 import Home from './home';
 import Cart from './cart'
@@ -9,6 +9,7 @@ import Login from './login'
 import SignUp from './signUp'
 import MarketingService from './marketingService';
 import data from './data'
+
 
 
 function MyAppRouting() {   

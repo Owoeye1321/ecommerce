@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import fb from '../images/fb.png'
-import li from '../images/ln.png'
-import ig from '../images/ig.png'
-import tw from '../images/tw.png'
 import styles from './style.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {fab, faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 
 function Social() {
    const [ color, setcolor ] = useState('lightblue'); 
@@ -29,7 +27,7 @@ function Social() {
                <div id = {styles.social_div}>
                    <center>
                         <a href = "#">
-                            <img id = {styles.socials} alt = "icon" src = {tw}/>
+                        <FontAwesomeIcon icon={faTwitterSquare} style ={{color:'lightgreen'}} size = 'xl'/>
                         </a>   
                    </center>
                 
@@ -37,7 +35,7 @@ function Social() {
                <div id = {styles.social_div}>
                    <center>
                         <a href = "#">
-                            <img id = {styles.socials} alt = "icon" src = {ig}/>
+                        <FontAwesomeIcon icon={faInstagramSquare} style ={{color:'lightgreen'}}  size = 'xl'/>
                         </a>   
                    </center>
                 
@@ -45,7 +43,7 @@ function Social() {
                <div id = {styles.social_div}>
                    <center>
                         <a href = "#">
-                            <img id = {styles.socials} alt = "icon" src = {li}/>
+                        <FontAwesomeIcon icon={faLinkedin} style ={{color:'lightgreen'}}  size = 'xl'/>
                         </a>   
                    </center>
                 
@@ -53,7 +51,7 @@ function Social() {
                <div id = {styles.social_div}>
                    <center>
                         <a href = "#">
-                            <img id = {styles.socials} alt = "icon" src = {fb}/>
+                        <FontAwesomeIcon icon={faFacebook} style ={{color:'lightgreen'}}   size = 'xl'/>
                         </a>   
                    </center>
                 

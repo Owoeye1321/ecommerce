@@ -195,15 +195,13 @@
   font-size: 60px;
   }
 #social_div{
-    height: 30px;
-    width:30px;
+  
     padding-top: 5px;
     float:left;
     margin-top:10px;
     margin-left: 10px;
     align-content: center;
     border-radius:50px;
-    background-color: rgba(32, 226, 65, 0.84);
 }
 .establish{
     font-size: 25px;
