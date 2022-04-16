@@ -13,7 +13,7 @@ const con = mysqlConnection.createConnection({
     if(sess.user){
         const customer_name = sess.user
         const status = "Delivered"
-        const sql = "SELECT DISTINCT * FROM addToCart WHERE customer_name = ?  AND status != ? ORDER BY id DESC "
+        const sql = "SELECT DISTINCT productName,productPrice, productId, productImage, productContent,productPrice, productAbout, productContent FROM addToCart WHERE customer_name = ?  AND status != ? ORDER BY id DESC "
         con.query(sql,[customer_name,status],(req,result)=>{
             res.json(result)
         },(err,res)=>{
