@@ -1,8 +1,12 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const fileUpload = require('express-fileupload')
+const bodyParser = require('body-parser')
 const app = express()
-app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(fileUpload())
+app.use(bodyParser.json())
 app.use(cookieParser())
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({

@@ -8,7 +8,8 @@ const con = mysqlConnection.createConnection({
    database: 'addriggo',
  })
 router.post('/', (req, res )=>{
-   sess = req.session
+  
+  sess = req.session
    if(sess.user){
       const customer_name =sess.user
          const  productId = req.body.productId

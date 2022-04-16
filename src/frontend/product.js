@@ -38,7 +38,7 @@ export default function Product(props) {
 
     <div className='row' id = {Styles.productPrice}>
                 <div className='row-sm-12 col-md-5 col-lg-5' id = {Styles.productImage}>
-                <img  alt = "icon" src =  {product.image}
+                <img name = 'productImage'  alt = "icon" src =  {product.image}
             style = {{width:'100%',height:'200px',marginLeft:'12px'}} />
             
                  
