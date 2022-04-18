@@ -18,7 +18,6 @@ function Cart() {
                         productId:produdctId
                 })
                 if(add.data = 'success'){
-                        alert('Added quantity,kndly refresh the page')
                         console.log('Added successfully')
                 }else {
                         console.log('An error was encountered')
@@ -30,7 +29,6 @@ function Cart() {
                         productId:getId
                 })
                 if(add.data = 'success'){
-                        alert('Removed quantity,kndly refresh the page')
                 }else {
                         console.log('An error was encountered')
                 }
@@ -65,7 +63,13 @@ function Cart() {
                     
 
                 }
-                fetchUserCarts()
+                const interval = setInterval (()=>{
+                        fetchUserCarts()
+                },1000)
+        
+                return()=>{
+                        clearInterval(interval)
+                }
         },[])
         
     

@@ -15,7 +15,8 @@ const con = mysqlConnection.createConnection({
                     con.query(sql,[id],(err, result)=>{
                         if(!err){
                             result.map((value)=>{
-                                if (value.qty > 1) {
+                                const get = parseInt(value.qty)
+                                if (get > 0) {
                                     const getQty = value.qty - 1
                                     const getTotal = value.productPrice
                                     const sum = getQty * getTotal
@@ -25,8 +26,16 @@ const con = mysqlConnection.createConnection({
                                         if(result){
                                             res.send('success')
                                             console.log(result)
-                                            console.log(customerId)
                                         }
+                                    })
+                                }else if(get == 0){
+                                    
+                                    const innestsql = "DELETE FROM addToCart WHERE productId = ?"
+                                    con.query(innestsql,[id],(err, data)=>{
+                                        if(!err){
+                                            res.send('success')
+                                            console.log(data)
+                                        }else('An error has occured' +err)
                                     })
                                 }
                            
