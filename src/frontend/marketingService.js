@@ -27,7 +27,7 @@ function MarketingService() {
                 </center>
                    
             </div>
-            <div className = 'col-sm-12 col-md-6 col-lg-6' style = {{width:'90%',marginLeft:'4%'}}>
+            <div className = 'col-sm-12 col-md-6 col-lg-6'>
                
                 <p id = {Styles.note} style = {{fontSize:'15px'}}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
                 competitors and the market .Addriggo product provides more actionable insights into how to optimize your nutrient plan. Addriggo chips guarantee you that

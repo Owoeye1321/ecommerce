@@ -18,11 +18,13 @@ router.post('/', (req, res )=>{
          const  productImage = req.body.productImage
          const  productContent = req.body.productContent
          const  productAbout = req.body.productAbout
+         const qty = req.body.qty
+         const totalPrice = req.body.productPrice
          
          const status = "ordered";
          
-         const sql = "INSERT INTO addToCart (customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status) VALUES (?,?,?,?,?,?,?,?) "
-         con.query(sql,[customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status], (err,result)=>{
+         const sql = "INSERT INTO addToCart (customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,total) VALUES (?,?,?,?,?,?,?,?,?,?) "
+         con.query(sql,[customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,totalPrice], (err,result)=>{
             if(!err){
                res.send("success")
             }

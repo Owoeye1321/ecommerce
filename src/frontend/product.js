@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 export default function Product(props) {
     const [ color, setcolor ] = useState('lightblue'); 
-    const {product , onAdd} = props
+    const {product} = props
 
     const verify_and_Add_key = async()=>{
         const response = await axios.get('/checkUser')
@@ -20,7 +20,8 @@ export default function Product(props) {
                 productPrice:product.price,
                 productImage:product.image,
                 productContent:product.otherContent,
-                productAbout:product.aboutProduct
+                productAbout:product.aboutProduct,
+                qty:1
             })
             if(addToCart.data === "success"){
                 alert(" Item added, Kindly proceed to cart and purchase item ")
@@ -45,7 +46,7 @@ export default function Product(props) {
                 </div>
                 <div className='row-sm-12 col-md-7 col-lg-7' id = {Styles.productContent}>
                     <h3>{product.name}</h3>
-                    <h4 style ={{color:'lightgreen'}}>${product.price}</h4>
+                    <h4 style ={{color:'lightgreen'}}>#{product.price}</h4>
                     <p style = {{fontSize:'10px'}}>{product.aboutProduct}</p>
                     <p style = {{fontSize:'10px'}}>{product.otherContent}</p>
                  

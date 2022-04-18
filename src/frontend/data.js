@@ -10,7 +10,7 @@ const data = {
         {
             id: '1',
             name: ' Groundnut Oil',
-            price: '25,000',
+            price: '25000',
             image: kegOil,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
@@ -19,7 +19,7 @@ const data = {
         {
             id: '2',
             name: ' Palm Oil',
-            price: '12,000',
+            price: '12000',
             image: palmOil,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
@@ -27,7 +27,7 @@ const data = {
         {
             id: '3',
             name: ' Rice ',
-            price: '32,000',
+            price: '32000',
             image: bagOfRice,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
@@ -35,7 +35,7 @@ const data = {
         {
             id: '4',
             name: ' Spagetti',
-            price: '4,000',
+            price: '4000',
             image: spag,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
@@ -43,7 +43,7 @@ const data = {
         {
             id: '5',
             name: ' Indomie',
-            price: '3,000',
+            price: '3000',
             image: indomie,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
@@ -51,7 +51,7 @@ const data = {
         {
             id: '6',
             name: ' Semo',
-            price: '2,000',
+            price: '2000',
             image: semo,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'
@@ -59,7 +59,7 @@ const data = {
         {
             id: '7',
             name: 'Chips',
-            price: '4,000',
+            price: '4000',
             image: chips,
             aboutProduct: 'All desired quanities are available at better price if you make a demand today ',
             otherContent: 'click add to cart to purchase product'

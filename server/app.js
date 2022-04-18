@@ -21,7 +21,8 @@ app.use('/login', require('./routes/login'))
  app.use('/addToCart', require ('./routes/addToCart'))
  app.use('/queryCart',require('./routes/queryCart'))
  app.use('/checkUser',require('./routes/session_check'))
- //app.use('/addAndDrop', require ('./routes/addAndDropFromCart'))
+ app.use('/addProductQty',require('./routes/addProduceQty'))
+ app.use('/removeProductProperty',require('./routes/removeProduceQty'))
 
 
  app.all("*",(req, res, next)=>{
