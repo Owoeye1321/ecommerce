@@ -108,7 +108,7 @@ function Cart() {
                                         <button  className = 'btn btn-primary' onClick={()=>{add(product.productId)}}>+</button><br/>
                                         <button onClick={()=>{cartSingle(product.productId)}} style ={{background:'lightgreen',marginRight:'20px', marginTop:'15px', border:'none',height:'40px',borderRadius:'10px',width:'100px',color:'white'}}>
                                         <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>  </button> 
-                                        <FontAwesomeIcon icon={faCcMastercard} style ={{color:'black'}}   size = 'xl'/><i>MasterCard</i>
+                                        <FontAwesomeIcon icon={faCcMastercard} style ={{color:'black',marginRight:'10px'}}   size = 'xl'/><i>MasterCard</i>
                                         
 
                                         </div>
