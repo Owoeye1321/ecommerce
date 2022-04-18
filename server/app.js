@@ -23,6 +23,8 @@ app.use('/login', require('./routes/login'))
  app.use('/checkUser',require('./routes/session_check'))
  app.use('/addProductQty',require('./routes/addProduceQty'))
  app.use('/removeProductProperty',require('./routes/removeProduceQty'))
+ app.use('/singlePayment',require('./routes/singlePayment'))
+ app.use('/allPayment',require('./routes/allPayment'))
 
 
  app.all("*",(req, res, next)=>{
