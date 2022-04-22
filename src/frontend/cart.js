@@ -7,17 +7,27 @@ import Footer from './footer'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCcMastercard} from "@fortawesome/free-brands-svg-icons";
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faSpinner } from '@fortawesome/free-solid-svg-icons';
 function Cart() {
         const [products, setProducts ] = useState([])
+        const [total , setTotal ] = useState([])
         const [empty , setEmpty ] = useState()
+        const [sum , setSum ] = useState()
+        const eradicate = async (getId)=>{
 
+                const remove = await axios.post('/deleteProduce',{
+                        productId:getId
+                })
+                if(remove.data !== 'success'){
+                        console.log('An error has occured')
+                }
+        }
 
         const add = async (produdctId)=>{ 
                 const add = await axios.post('/addProductQty',{
                         productId:produdctId
                 })
-                if(add.data = 'success'){
+                if(add.data == 'success'){
                         console.log('Added successfully')
                 }else {
                         console.log('An error was encountered')
@@ -25,10 +35,10 @@ function Cart() {
                 
         }
         const remove = async (getId)=>{
-                const add = await axios.post('/removeProductProperty',{
+                const remove = await axios.post('/removeProductProperty',{
                         productId:getId
                 })
-                if(add.data = 'success'){
+                if(remove.data == 'success'){
                 }else {
                         console.log('An error was encountered')
                 }
@@ -40,8 +50,8 @@ function Cart() {
                 alert('carting all')
         }
 
+
         useEffect(() =>{
-                
                 const fetchUserCarts = async ()=>{
                         const res = await axios.get('/checkUser')
                         if(res.data === "invalid"){
@@ -49,18 +59,28 @@ function Cart() {
                 
                         }else{
                                 const response = await axios.get('/queryCart')
-                                if(response.data.length > 0){
-                                        console.log(response.data)
+                                if(response.data.length > 0){   
                                        setProducts(response.data)
+                                       for (let index = 0; index < products.length; index++) {
+                                       if(products[index].total !== ''){
+                                        setTotal(total[index] = parseInt(products[index].total))
+                                       const resume = total.reduce((pre, current,index)=> pre + current,0)
+                                      setSum(resume)
+                                      console.log(resume)
+
+                                       }
+                                      
+                                }
                                         
                                 }else{
                                         console.log(response)
                                         console.log('cart empty')
                                         setEmpty('Cart is empty')
                                 }
+                             
                                 
                         }
-                    
+                
 
                 }
                 const interval = setInterval (()=>{
@@ -104,8 +124,9 @@ function Cart() {
                                         
                                         
                                         <br/>   <br/> 
-                                        <button className = 'btn btn-danger' style = {{marginRight:'10px'}} onClick={()=>{remove(product.productId)}}>-</button>
-                                        <button  className = 'btn btn-primary' onClick={()=>{add(product.productId)}}>+</button><br/>
+                                        <button className = 'btn btn-warning' style = {{marginRight:'10px'}} onClick={()=>{remove(product.productId)}}>-</button>
+                                        <button  className = 'btn btn-primary' onClick={()=>{add(product.productId)}} style ={{marginRight:'10px'}}>+</button>
+                                        <button  className = 'btn btn-danger' onClick={()=>{eradicate(product.productId)}}>Remove</button><br/>
                                         <button onClick={()=>{cartSingle(product.productId)}} style ={{background:'lightgreen',marginRight:'20px', marginTop:'15px', border:'none',height:'40px',borderRadius:'10px',width:'100px',color:'white'}}>
                                         <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>  </button> 
                                         <FontAwesomeIcon icon={faCcMastercard} style ={{color:'black',marginRight:'10px'}}   size = 'xl'/><i>MasterCard</i>
@@ -119,7 +140,10 @@ function Cart() {
                         )
                        
                     })}
-                      <button onClick={()=>{cartAll()}} style ={{background:'lightgreen',marginTop:'30px', border:'none',height:'40px',borderRadius:'10px',marginRight:'30px',color:'white'}}>
+                    <center><br/>
+                        {(sum) ? <p>Total:#{sum}</p> : <p><FontAwesomeIcon  icon={faSpinner} style ={{color:'black'}}   size = 'xl'/></p>}
+                        </center>
+                      <button id = {Styles.favorites} onClick={()=>{cartAll()}} style ={{background:'lightgreen',marginTop:'30px', border:'none',height:'40px',borderRadius:'10px',marginRight:'30px',color:'white'}}>
                       <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>
                       </button>
                     

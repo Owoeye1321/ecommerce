@@ -25,6 +25,7 @@ app.use('/login', require('./routes/login'))
  app.use('/removeProductProperty',require('./routes/removeProduceQty'))
  app.use('/singlePayment',require('./routes/singlePayment'))
  app.use('/allPayment',require('./routes/allPayment'))
+ app.use('/deleteProduce',require('./routes/deleteProduct'))
 
 
  app.all("*",(req, res, next)=>{

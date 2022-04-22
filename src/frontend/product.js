@@ -25,7 +25,6 @@ export default function Product(props) {
             })
             if(addToCart.data === "success"){
                 alert(" Item added, Kindly proceed to cart and purchase item ")
-                window.location.assign("http://localhost:3000/cart")
             }else(
                 console.log(addToCart)
             )

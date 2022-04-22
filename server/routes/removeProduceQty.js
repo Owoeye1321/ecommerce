@@ -35,7 +35,7 @@ const con = mysqlConnection.createConnection({
                                         if(!err){
                                             res.send('success')
                                             console.log(data)
-                                        }else('An error has occured' +err)
+                                        }
                                     })
                                 }
                            

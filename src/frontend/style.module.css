@@ -40,7 +40,9 @@
     text-decoration: none;
   }
 @media (max-width: 570px) {
-   
+    #favorites{
+        width:98%;
+    }
     #hidMe{
         display: block;
     }
@@ -128,6 +130,12 @@
 
 } 
 @media (min-width: 575px) {
+
+    #favorites{
+        width:50%;
+        margin-left:25%
+    }
+
     #logo_div_mobile{
         height:50px;
         display:none;
