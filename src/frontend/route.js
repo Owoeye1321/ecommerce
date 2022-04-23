@@ -9,6 +9,7 @@ import Login from './login'
 import SignUp from './signUp'
 import MarketingService from './marketingService';
 import data from './data'
+import App from './paystack';
 
 
 
@@ -42,6 +43,7 @@ function MyAppRouting() {
                 <Route  path="/login"  element = {<Login/>}/>
 
                 <Route  path="/signUp"  element = {<SignUp/>}/>
+                <Route  path="/payment"  element = {<App/>}/>
 
                 </Routes>
 

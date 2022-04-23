@@ -7,18 +7,21 @@ import Footer from './footer'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCcMastercard} from "@fortawesome/free-brands-svg-icons";
-import { faCartShopping, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {faCartShopping, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { usePaystackPayment } from 'react-paystack';
 function Cart() {
         const [products, setProducts ] = useState([])
         const [total , setTotal ] = useState([])
         const [empty , setEmpty ] = useState()
         const [sum , setSum ] = useState()
+
+     
         const eradicate = async (getId)=>{
 
                 const remove = await axios.post('/deleteProduce',{
                         productId:getId
                 })
-                if(remove.data !== 'success'){
+                if(remove.data){
                         console.log('An error has occured')
                 }
         }
@@ -43,8 +46,15 @@ function Cart() {
                         console.log('An error was encountered')
                 }
         }
-        const cartSingle = async (getId)=>{
-                alert('carting single')
+        const cartSingle = async (getId ,totalPrice)=>{
+            const productTotalPrice = totalPrice
+            const productId = getId
+            const sendPending = await axios.post('/singlePayment',{
+                    amount:productTotalPrice,
+                    productId:productId
+            })
+            if(sendPending.data == 'success') window.location.assign('payment');
+          
         }
         const cartAll = async (getId)=>{
                 alert('carting all')
@@ -127,7 +137,7 @@ function Cart() {
                                         <button className = 'btn btn-warning' style = {{marginRight:'10px'}} onClick={()=>{remove(product.productId)}}>-</button>
                                         <button  className = 'btn btn-primary' onClick={()=>{add(product.productId)}} style ={{marginRight:'10px'}}>+</button>
                                         <button  className = 'btn btn-danger' onClick={()=>{eradicate(product.productId)}}>Remove</button><br/>
-                                        <button onClick={()=>{cartSingle(product.productId)}} style ={{background:'lightgreen',marginRight:'20px', marginTop:'15px', border:'none',height:'40px',borderRadius:'10px',width:'100px',color:'white'}}>
+                                        <button onClick={()=>{cartSingle(product.productId , product.total)}} style ={{background:'lightgreen',marginRight:'20px', marginTop:'15px', border:'none',height:'40px',borderRadius:'10px',width:'100px',color:'white'}}>
                                         <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>  </button> 
                                         <FontAwesomeIcon icon={faCcMastercard} style ={{color:'black',marginRight:'10px'}}   size = 'xl'/><i>MasterCard</i>
                                         
@@ -140,7 +150,10 @@ function Cart() {
                         )
                        
                     })}
+
+                    
                     <center><br/>
+                    
                         {(sum) ? <p>Total:#{sum}</p> : <p><FontAwesomeIcon  icon={faSpinner} style ={{color:'black'}}   size = 'xl'/></p>}
                         </center>
                       <button id = {Styles.favorites} onClick={()=>{cartAll()}} style ={{background:'lightgreen',marginTop:'30px', border:'none',height:'40px',borderRadius:'10px',marginRight:'30px',color:'white'}}>

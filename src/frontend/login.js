@@ -32,7 +32,7 @@ function LogIn() {
            if (response.data == 'success') {
                
                     alert('Welcome '+ details.username)
-                    window.location.assign("http://localhost:3000/")
+                    window.location.assign("http://localhost:3000/cart")
               
             } 
         }   
