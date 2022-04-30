@@ -33,7 +33,7 @@ const con = mysqlConnection.createConnection({
                                     const innestsql = "DELETE FROM addToCart WHERE productId = ?"
                                     con.query(innestsql,[id],(err, data)=>{
                                         if(!err){
-                                            res.send('success')
+                                            res.json({success:'success'})
                                             console.log(data)
                                         }
                                     })
@@ -48,8 +48,6 @@ const con = mysqlConnection.createConnection({
                         }
                     })
           
-      }else{
-          res.send('invalid')
       }
      
   })

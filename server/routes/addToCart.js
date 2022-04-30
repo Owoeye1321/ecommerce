@@ -22,16 +22,25 @@ router.post('/', (req, res )=>{
          const totalPrice = req.body.productPrice
          
          const status = "ordered";
-         
-         const sql = "INSERT INTO addToCart (customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,total) VALUES (?,?,?,?,?,?,?,?,?,?) "
-         con.query(sql,[customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,totalPrice], (err,result)=>{
-            if(!err){
-               res.send("success")
-            }
-            else{
-               console.log("An error has occured "+err)
-            }
+         const innersql = "SELECT * FROM addToCart WHERE customer_name = ? AND productId = ?"
+         con.query(innersql,[customer_name,productId],(outerErr, outerResult) => {
+           if(!outerErr){
+             if(outerResult.length){
+               res.send('exist')
+             }else{
+               const sql = "INSERT INTO addToCart (customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,total) VALUES (?,?,?,?,?,?,?,?,?,?) "
+               con.query(sql,[customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,totalPrice], (err,result)=>{
+                  if(!err){
+                     res.send("success")
+                  }
+                  else{
+                     console.log("An error has occured "+err)
+                  }
+               })
+             }
+           }else{console.log(outerErr)}
          })
+     
 
 
    }else{

@@ -8,7 +8,7 @@ const con = mysqlConnection.createConnection({
     database: 'addriggo',
   })
   router.post('/', (req, res )=>{
-    res.send('hello world')
+    
      
   })
 

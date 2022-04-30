@@ -11,9 +11,7 @@ import {faCartShopping, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { usePaystackPayment } from 'react-paystack';
 function Cart() {
         const [products, setProducts ] = useState([])
-        const [total , setTotal ] = useState([])
         const [empty , setEmpty ] = useState()
-        const [sum , setSum ] = useState()
 
      
         const eradicate = async (getId)=>{
@@ -42,9 +40,10 @@ function Cart() {
                         productId:getId
                 })
                 if(remove.data == 'success'){
-                }else {
-                        console.log('An error was encountered')
-                }
+                        console.log("Removed successfully")
+                }else if(remove.data.success) {
+                        console.log('Removed successfully')
+                }else{console.log("An error has occured") }
         }
         const cartSingle = async (getId ,totalPrice)=>{
             const productTotalPrice = totalPrice
@@ -53,11 +52,15 @@ function Cart() {
                     amount:productTotalPrice,
                     productId:productId
             })
-            if(sendPending.data == 'success') window.location.assign('payment');
+            if(sendPending.data == 'exist') {
+                    alert('Cart payment pending')
+                      window.location.assign('simplePaystackPaymentPageForAddriggo');
+                }
+                  else if(sendPending.data == 'success') {
+                         alert('payment loading')
+                         window.location.assign('simplePaystackPaymentPageForAddriggo');
+                        }
           
-        }
-        const cartAll = async (getId)=>{
-                alert('carting all')
         }
 
 
@@ -71,16 +74,7 @@ function Cart() {
                                 const response = await axios.get('/queryCart')
                                 if(response.data.length > 0){   
                                        setProducts(response.data)
-                                       for (let index = 0; index < products.length; index++) {
-                                       if(products[index].total !== ''){
-                                        setTotal(total[index] = parseInt(products[index].total))
-                                       const resume = total.reduce((pre, current,index)=> pre + current,0)
-                                      setSum(resume)
-                                      console.log(resume)
-
-                                       }
-                                      
-                                }
+                                
                                         
                                 }else{
                                         console.log(response)
@@ -151,14 +145,6 @@ function Cart() {
                        
                     })}
 
-                    
-                    <center><br/>
-                    
-                        {(sum) ? <p>Total:#{sum}</p> : <p><FontAwesomeIcon  icon={faSpinner} style ={{color:'black'}}   size = 'xl'/></p>}
-                        </center>
-                      <button id = {Styles.favorites} onClick={()=>{cartAll()}} style ={{background:'lightgreen',marginTop:'30px', border:'none',height:'40px',borderRadius:'10px',marginRight:'30px',color:'white'}}>
-                      <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>
-                      </button>
                     
                 
             

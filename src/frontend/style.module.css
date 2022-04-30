@@ -7,7 +7,6 @@
     height: 50px;
     margin-right: 100px;
 }
-
   #logDiv {
     margin-top: 5px;
     height: 290px;
@@ -39,7 +38,13 @@
     margin-left: 90px;
     text-decoration: none;
   }
+  #loot{
+   margin-bottom: 30px;
+}
 @media (max-width: 570px) {
+    #loot{
+        display: none;
+    }
     #favorites{
         width:98%;
     }
@@ -303,12 +308,10 @@ to{color:green}
     margin-left: 0px;
     background-color:  rgba(32, 226, 65, 0.84);
 }
-
 #firstContent{
     margin-top: 60px;
 
 }
-s
 #note{
     font-size: 15px;
     margin-left: 10px;
@@ -356,7 +359,6 @@ s
     color:rgba(32, 226, 65, 0.84);
 
 }
-
 #cool{
     height:450px;
     width:100%;
@@ -412,4 +414,10 @@ s
     background-size: contain;
     width: 100%;
     background-size: 100% 100%;
+}
+#newLove{
+    width: 199px;
+    marginTop: 10px;
+    borderRadius: 5px;
+
 }

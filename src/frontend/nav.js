@@ -1,11 +1,10 @@
 import Styles from './style.module.css'
 import two from  '../images/two.jpeg'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Nav,  Navbar, NavDropdown } from 'react-bootstrap';
-import $  from 'jquery'
+import {Nav,  Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react'
+
 
 function Navigation() {
  // const [ background, setBackground ] = useState('') 

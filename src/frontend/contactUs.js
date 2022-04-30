@@ -79,7 +79,7 @@ function ContactUs() {
                                 <input className="form-control" type="text" required placeholder="Full name"  name="fullname" style={{marginBottom: '10px;',borderRadius:'5px'}}/><br/>
                             <input className="form-control" type="text" required placeholder="Phone" name="phone" style= {{borderRadius:'5px',marginBottom: '10px'}}/>
                             <input className="form-control" type="email" required placeholder="Email" name="email" style= {{borderRadius:'5px',marginBottom: '10px'}}/>
-                            <textarea name ="message" placeholder= "Type message here" className ="form-control"></textarea><br/>
+                            <textarea name ="message" placeholder= "Address" className ="form-control"></textarea><br/>
                             <input className ="btn btn-outline-primary" type="submit" value="Submit" name="submit" 
                             style={{width: '195px',borderRadius:'5px',float: 'left',boxShadow:' 2px 2px 2px 2px lightblue'}}/><br/>
                 

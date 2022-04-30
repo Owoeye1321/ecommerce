@@ -9,24 +9,59 @@ import {fab, faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@
 function Footer() {
     const [ color, setcolor ] = useState('lightblue'); 
     return(
-        <div className = ' bg-light'  style = {{marginTop:'50px',width:'100%'}}>
+        <div className = ' bg-dark'  style = {{marginTop:'50px',width:'100%'}}>
             <div className='row'  >
                 
           
         <div className = 'col- sm-12 col-md-6 col-lg-6'>
             <ul style = {{marginTop:'50px'}}>
                 <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = 'contactUs' style = {{color:'black',marginBottom:'20px'}}>Contact Us</a>
+                    <a className = 'nav-link' href = 'contactUs' style = {{color:'black',marginBottom:'0px',color:'white',fontSize:'25px'}}>Contact Us</a>
                 </li>
                 <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = 'marketingService' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Marketing service</a>
+                    <a className = 'nav-link' href = 'marketingService' style = {{color:'black',marginBottom:'0px'}}>Marketing service</a>
                 </li>
                 <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = 'pricing' style = {{color:'black',marginBottom:'20px'}}>Pricing</a>
+                    <a className = 'nav-link' href = 'pricing' style = {{color:'black',marginBottom:'0px'}}>Pricing</a>
                 </li>
-                <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'20px'}}>About Us</a>
+                <div id =  {styles.loot}>
+                <li> 
+                <div id = {styles.social_div}>
+                   <center>
+                        <a href = "#">
+                        <FontAwesomeIcon icon={faTwitterSquare} style ={{color:'lightgreen'}} size = 'xl'/>
+                        </a>   
+                   </center>
+                
+               </div>
+               <div id = {styles.social_div}>
+                   <center>
+                        <a href = "#">
+                        <FontAwesomeIcon icon={faInstagramSquare} style ={{color:'lightgreen'}}  size = 'xl'/>
+                        </a>   
+                   </center>
+                
+               </div>
+               <div id = {styles.social_div}>
+                   <center>
+                        <a href = "#">
+                        <FontAwesomeIcon icon={faLinkedin} style ={{color:'lightgreen'}}  size = 'xl'/>
+                        </a>   
+                   </center>
+                
+               </div>
+               <div id = {styles.social_div}>
+                   <center>
+                        <a href = "#">
+                        <FontAwesomeIcon icon={faFacebook} style ={{color:'lightgreen'}}   size = 'xl'/>
+                        </a>   
+                   </center>
+                
+               </div>
+            
                 </li>
+                </div>
+              
                 <div id = {styles.mobile_social} >
                <div style ={{marginTop:'-10px'}}>
 
@@ -93,15 +128,15 @@ function Footer() {
         </div>
         <div className = 'col-sm-12 col-md-6 col-lg-6 '>
         <ul style = {{marginTop:'50px'}}>
-                <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px'}}>Sponsors</a>
+        <li className = 'nav nav-item'>
+                    <a className = 'nav-link' href = 'aboutUs' style = {{color:'black',marginBottom:'0px',color:'white',fontSize:'25px'}}>About Us</a>
                 </li>
                 <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = 'login' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Login</a>
+                    <a className = 'nav-link' href = 'login' style = {{color:'black',marginBottom:'0px'}}>Login</a>
                 </li>
 
                 <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'20px',marginBottom:'20px'}}>Contact Developer</a>
+                    <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'0px'}}>Contact Developer</a>
                 </li>
               
             </ul>

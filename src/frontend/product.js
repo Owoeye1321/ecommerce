@@ -25,8 +25,8 @@ export default function Product(props) {
             })
             if(addToCart.data === "success"){
                 alert(" Item added, Kindly proceed to cart and purchase item ")
-            }else(
-                console.log(addToCart)
+            }else if(addToCart.data === "exist")(
+               alert('cart has already been added')
             )
         }
       

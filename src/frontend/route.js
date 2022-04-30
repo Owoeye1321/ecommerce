@@ -43,7 +43,7 @@ function MyAppRouting() {
                 <Route  path="/login"  element = {<Login/>}/>
 
                 <Route  path="/signUp"  element = {<SignUp/>}/>
-                <Route  path="/payment"  element = {<App/>}/>
+                <Route  path="/simplePaystackPaymentPageForAddriggo"  element = {<App/>}/>
 
                 </Routes>
 

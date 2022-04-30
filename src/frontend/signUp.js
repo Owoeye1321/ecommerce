@@ -74,11 +74,7 @@ function SignUp() {
                            <div  id={styles.err} >
                                 <i style={{marginBottom:"-1px",color:color}}>{error}</i>
                                 </div>
-                            <input style={{marginBottom:"-1px"}} className= "btn btn-outline-primary" type ="submit" value="submit" style = {{
-                                width: "200px",
-                                 marginTop: "10px",
-                                    borderRadius: "5px" 
-                            }} /><br></br>   
+                            <input style={{marginBottom:"-1px"}} className= "btn btn-outline-primary" type ="submit" value="submit"  id = {styles.newLove} /><br></br>   
                             <a id={styles.forget_password} href="/forgetPassword">Forget password?</a>                    
                         </form>
                         </div>
