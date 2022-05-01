@@ -10,12 +10,22 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
+  cookie:{
+    secure: true,
+    maxAge:60000
+       },
   secret:"OwoeyeSamuelOlamide",
   saveUninitialized:true,
   cookie:{maxAge:oneDay},
   resave:false
 }))
-const PORT = process.env.PORT || 5000
+app.use(function(req,res,next){
+  if(!req.session){
+      return next(new Error('Oh no')) //handle error
+  }
+  next() //otherwise continue
+  });
+const PORT = 5000
 app.use('/login', require('./routes/login'))
  app.use('/signUp', require ('./routes/signUp'))  
  app.use('/addToCart', require ('./routes/addToCart'))
@@ -34,6 +44,6 @@ app.use('/login', require('./routes/login'))
   next()
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log('Listening to port' + ' ' + PORT)
   })  
