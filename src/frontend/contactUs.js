@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Footer from './footer'
 import React, { useState } from 'react';
 import Social from './social'
@@ -6,14 +7,46 @@ import Styles from './style.module.css'
 import Nav from './nav'
 import Logo from './logo'
 function ContactUs() {
-
+    const [data, setData ] = useState([])
+    const [error, setError ] = useState()
     const [ color, setcolor ] = useState('black'); 
     const [opacity, setOpacity]= useState(1)
+    
+    const Submit = async (e)=>{
+        e.preventDefault()
+        const details = {
+            username:data.name,
+            phone:data.phone,
+            email:data.email,
+            message:data.message
+        }
+        console.log(details)
+        const response = await axios.post('/contactUs',{details})
+        if (response){
+            if(response.data === 'failed')
+            {
+                window.location.assign("http://localhost:3000/login")
+                
+            }
+           if (response.data == 'success') {
+               
+                    alert('Email Sent, you would receive feedback shortly')
+                    window.location.assign("http://localhost:3000/cart")
+              
+            } 
+        }  
+    }
+    const handle = (e)=>{
+        const newData = {...data}
+        newData[e.target.id] = e.target.value
+        setData(newData)
+    }
+
     return(
         <div>
             
 
-            <div class = 'bg-light' style = {{paddingBottom:'10px'}}>
+            <div className = 'bg-light' style = {{paddingBottom:'10px'}}>
 
                     <Social />
                     <Logo/>
@@ -62,7 +95,7 @@ function ContactUs() {
             </center>
          
         </div>
- <div className = 'row' style={{marginTop: '30px;'}}>
+ <div className = 'row' style={{marginTop: '30px'}}>
                     <div className ="col-sm-12 col-md-6 col-lg-6" style = {{paddingTop:'80px',paddingLeft:'60px'}}>
                             <strong style = {{color:'black',fontSize:'35px'}}>Address</strong>
                             <p>Factory Address is at plot H 1-3,t<br/>Adriggo Road,<br/> Maigida Harmony  Estate,e<br/>Amoyo.</p>
@@ -75,11 +108,11 @@ function ContactUs() {
                      </div>
 
                      <div className ="col-sm-12 col-md-6 col-lg-6" style = {{padding:'150px 40px 20px 40px'}}>
-                            <form method="POST" action="#" enctype ="multipart/form-data">
-                                <input className="form-control" type="text" required placeholder="Full name"  name="fullname" style={{marginBottom: '10px;',borderRadius:'5px'}}/><br/>
-                            <input className="form-control" type="text" required placeholder="Phone" name="phone" style= {{borderRadius:'5px',marginBottom: '10px'}}/>
-                            <input className="form-control" type="email" required placeholder="Email" name="email" style= {{borderRadius:'5px',marginBottom: '10px'}}/>
-                            <textarea name ="message" placeholder= "Address" className ="form-control"></textarea><br/>
+                            <form onSubmit= {(e) => Submit(e) }>
+                                <input onChange = {(e)=>handle(e)} className="form-control" type="text" required placeholder="Full name"  id="name" style={{marginBottom: '10px',borderRadius:'5px'}}/>
+                            <input onChange = {(e)=>handle(e)} className="form-control" type="text" required placeholder="Phone" id="phone" style= {{borderRadius:'5px',marginBottom: '10px'}}/>
+                            <input onChange = {(e)=>handle(e)} className="form-control" type="email" required placeholder="Email" id="email" style= {{borderRadius:'5px',marginBottom: '10px'}}/>
+                           <textarea onChange = {(e)=>handle(e)} id ="message" placeholder= "Address" className ="form-control"></textarea><br/>
                             <input className ="btn btn-outline-primary" type="submit" value="Submit" name="submit" 
                             style={{width: '195px',borderRadius:'5px',float: 'left',boxShadow:' 2px 2px 2px 2px lightblue'}}/><br/>
                 

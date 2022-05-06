@@ -35,14 +35,15 @@ app.use('/login', require('./routes/login'))
  app.use('/removeProductProperty',require('./routes/removeProduceQty'))
  app.use('/singlePayment',require('./routes/singlePayment'))
  app.use('/querySinglePaymentdetails',require('./routes/querySinglePaymentdetails'))
-//  app.use('/allPayment',require('./routes/allPayment'))
-//  app.use('/deleteProduce',require('./routes/deleteProduct'))
+ app.use('/contactUs',require('./routes/sendMail'))
+ app.use('/deleteProduce',require('./routes/deleteProduct'))
 
 
  app.all("*",(req, res, next)=>{
   res.send("Hello there, you seem to be on another undefined route")
   next()
 })
+
 
 app.listen(process.env.PORT || PORT, () => {
     console.log('Listening to port' + ' ' + PORT)

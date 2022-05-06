@@ -161,7 +161,7 @@ function FurtherContent() {
             </div>
             <div className = 'col-sm-12 col-md-6 col-lg-6' >
                
-                <p id = {Styles.note} style = {{padding :'10px 10px 10px 10px'}}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
+                <p id = {Styles.note} style = {{padding :'0px 10px 10px 10px'}}>Addriggo foods marketing strategies are smarter, more intuitive, and big data-based, with in-depth analysis of
                 competitors and the market .Addriggo product provides more actionable insights into how to optimize your nutrient plan. Addriggo chips guarantee you that
                 you will receive the best protein possible satisfaction goal with the added benefits of quantity size.</p>
 
