@@ -1,26 +1,25 @@
-const express = require('express')
-const mysqlConnection = require('mysql')
-const router = express.Router()
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+const uri = process.env.ATLAS_URI
 
-const con = mysqlConnection.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'addriggo',
-  })
+const { MongoClient, ServerApiVersion } = require('mongodb')
+      const router = require('express').Router()
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
   router.get('/',(req, res)=>{
     const sess = req.session
     if(sess.user){
         const customer_name = sess.user
         const status = "Delivered"
-        const sql = "SELECT DISTINCT productName,productPrice, productId, productImage, productContent,productPrice, productAbout, productContent,qty,total FROM addToCart WHERE customer_name = ?  AND status != ? ORDER BY id DESC "
-        con.query(sql,[customer_name,status],(err,result)=>{
-            if(!err){
-                res.json(result)
-               
+        client.connect(async err=>{
+            const collection = client.db('ecommerce').collection('addToCart')
+            const queryProduct = await collection.find({customer_name:customer_name, status:!status})
+            if(queryProduct){
+                res.json(queryProduct)
             }else{
-                res.send("Server error " + err)
+                console.log('An error has occurred')
+                res.send('Unable to delete Item')
             }
+            client.close();
         })
     }
   })
