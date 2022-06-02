@@ -1,16 +1,10 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-  }
-  const publicKey = process.env.PUBLIC_PAYSTACK_KEY
-const express = require('express')
-const router = express.Router()
-const mysqlConnection = require('mysql')
-const con = mysqlConnection.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'addriggo',
-  })
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+const uri = process.env.ATLAS_URI
+
+const { MongoClient, ServerApiVersion, Collection } = require('mongodb')
+      const router = require('express').Router()
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
   router.get('/',(req, res)=>{
    const sess = req.session
    if(sess.user){
@@ -20,33 +14,40 @@ const con = mysqlConnection.createConnection({
       productId:sess.productId
     })
    }
-  
   })
 
   router.post('/',(req, res) => {
     const sess = req.session
     if(sess.user){
       const customer = sess.user
-      const productId = req.body.productId
-      const amount = req.body.amount
+       const productId = req.body.productId
+        const amount = req.body.amount
       const status = "paid"
-  
-    const sql = "DELETE * FROM pending WHERE customer = ? AND productId = ? "
-    con.query(sql,[customer, productId],(err, result)=>{
-      if(!err){
-        const innersql = "UPDATE addToCart SET status = ? WHERE customer_name = ? and productId = ?"
-        con.query(innersql,[status, customer, productId], (innerErr, innerReault)=>{
-          if(!innerErr){
-            const innestSql = "INSERT INTO transactinos WHERE(customer, amount , status) VALUES (? ,? ,?)"
-            con.query(innestSql, [customer, amount, status],(innestErr, innestResult)=>{
-              if(!innestErr){
-                res.send('Done')
-              }else{console.log(innestErr)}
-            })
-          }else{console.log(innerErr)}
-        })
-      }else{console.log(err)}
-    })
+  client.connect(async err=>{
+    const collectionForPending = client.db('ecommerce').collection('pending')
+      const deleteFromPending = await collectionForPending.deleteOne({customer:customer, productId:productId})
+    if(deleteFromPending){
+      const collectionForAddToCart = client.db('ecommerce').collection('addToCart')
+        const updateAddToCart = await collectionForAddToCart.update({customer_name:customer, productId:productId},{status:status})
+          if(updateAddToCart){
+             const collectionForTransaction = client.db('ecommerce').collection('transaction')
+                const InsertNewTransaction  = await collectionForTransaction.insertOne({customer:customer, amount:amount, status:status})
+                  if(InsertNewTransaction){
+                    res.send('Done')
+                  }else{
+                    res.send('Unable to insert transaction')
+                    console.log('Unable to insert transaction')
+                  }
+          }else{
+            res.send('Unable to update to addToCart')
+            console.log('Unable to Update to addToCart')
+          }
+    }else{
+      res.send('Unable to delete from pending')
+      console.log('Unable to delete from pending')
+    }
+    client.close();
+  })
   }
   })
   module.exports = router
