@@ -8,9 +8,9 @@ export default function Product(props) {
     const verify_and_Add_key = async()=>{
         const response = await axios.get('/checkUser')
         if(response.data === "invalid"){
-            window.location.assign("http://localhost:3000/login")
+            window.location.assign("http://localhost:3002/login")
 
-        }else if(response.data = "valid")
+        }else if(response.data === "valid")
         {
           
 
@@ -23,10 +23,10 @@ export default function Product(props) {
                 productAbout:product.aboutProduct,
                 qty:1
             })
-            if(addToCart.data === "success"){
+            if(addToCart.data === "exist"){
+                alert('cart has already been added')
+            }else if(addToCart.data === "success")(
                 alert(" Item added, Kindly proceed to cart and purchase item ")
-            }else if(addToCart.data === "exist")(
-               alert('cart has already been added')
             )
         }
       
