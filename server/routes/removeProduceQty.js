@@ -1,16 +1,25 @@
-const express = require('express')
-const router = express.Router()
-const mysqlConnection = require('mysql')
-const con = mysqlConnection.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'addriggo',
-  })
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+const uri = process.env.ATLAS_URI
+
+const { MongoClient, ServerApiVersion } = require('mongodb')
+      const router = require('express').Router()
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
   router.post('/', (req, res )=>{
       if(req.body.productId){
 
           const id = req.body.productId
+             client.connect(async err =>{
+                 const collectionForAddToCart = client.db('ecommerce').collection('addToCart')
+                    const selectQtyAndProductPrice = await collectionForAddToCart.findOne({productId:id})
+                    if(selectQtyAndProductPrice){
+                        selectQtyAndProductPrice.map((key)=>{
+                            const get = parseInt(key.qty)
+                            
+                        })
+                    }
+                client.close();
+             })
                     const sql = "SELECT qty, productPrice FROM addToCart WHERE productId = ?"
                     con.query(sql,[id],(err, result)=>{
                         if(!err){
