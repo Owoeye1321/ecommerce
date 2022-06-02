@@ -1,91 +1,88 @@
-import styles from './style.module.css'
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 
+
 function SignUp() { 
-    const [color, setColor ] =useState('green')
+    const [error, setError] = useState('')
     const [data, setData ] = useState({
         username:'',
-        password:'',
-        email:''
+        email:'',
+        password:''
     })
-
-
-    const [error, setError] = useState('Password must be at least 8 parameters')
-
-
     const handle = (e)=>{
         const newData = {...data}
         newData[e.target.id] = e.target.value
         setData(newData)
     }
-    
-    const submit = async(e)=>{
-      
+
+    const submit = async (e)=>{
         e.preventDefault()
-        const result = await axios.post('/signUp',
-        { 
+        const details = {
             username:data.username,
-            password:data.password,
-            email:data.email
-        })
-    if(result.data === "exist"){
-        setColor('blue')
-        setError('User already exist')  
-        console.log(result)
-       }  
-        
-       else if(result.data == "success"){
-           alert("Signed Up Successfully,login to continue")
-        window.location.assign("http://localhost:3000/login")
-       }
-       else if (result.data !== "success") {
-        setColor('red')
-        setError('Invalid details')
+            email:data.email,
+            password:data.password
+        }
+        const result = await axios.post('/signup',{details})
+        if(result.data === 'success'){
+            window.location.assign('http://localhost:3002/cart')
+        }else{
+            setError('invalid details')
+            console.log(result.data)
+        }
+         
         
     }
-    }       
+        
+
     return(
         
     <div>
-    <center>
-<div className = "container pt-3" style = {{marginTop:'150px'}}>
-          
-         
-                        <div id={styles.logDiv} className = "bg-light">
-                        <span id={styles.Namestyle}>Login</span>
-                        <form onSubmit= {(e) => submit(e) } >
-                            <input onChange = {(e)=>handle(e)}  required className = "form-control"  style = {{
-                                width: "200px",
-                                 marginTop: "10px",
-                                    borderRadius: "5px"
-                            }} type="text" id="username" placeholder="Username"/>
-                            <input onChange = {(e)=>handle(e)}   required className = "form-control"  style = {{
-                                width: "200px",
-                                 marginTop: "10px",
-                                    borderRadius: "5px"
-                            }} type="password" id="password" placeholder="Password"/>
-                            <input onChange = {(e)=>handle(e)}   required className = "form-control"  style = {{
-                                width: "200px",
-                                 marginTop: "10px",
-                                    borderRadius: "5px"
-                            }} type="email" id="email" placeholder="Email"/>
-                           <div  id={styles.err} >
-                                <i style={{marginBottom:"-1px",color:color}}>{error}</i>
-                                </div>
-                            <input style={{marginBottom:"-1px"}} className= "btn btn-outline-primary" type ="submit" value="submit"  id = {styles.newLove} /><br></br>   
-                            <a id={styles.forget_password} href="/forgetPassword">Forget password?</a>                    
-                        </form>
-                        </div>
-                        <div id={styles.createNewSiteInfo}>
-                            <span id={styles.textfont}>Already have an account?</span> <a style = {{textDecoration:'none'}} href="/login">Login</a><br></br>
-                            </div>  
-                                     
-                           
-                    </div>
+    <div className='row'>
+                <div className='col-sm-12 col-md-3 col-lg-4'>
 
-    </center>
+                </div>
+                <div className='col-sm-12 col-md-6 col-lg-4' style = {{padding:'150px 50px 50px 50px'}}>
+	                
+	                        <h4 className="mb-3">Login</h4>
+	                        <form className="input_style_1" onSubmit={(e)=>{submit(e)}}>
+	                            <div className="form-group">
+	                                <label>Username</label>
+	                                <input onChange={(e)=>{handle(e)}} type="text" id="username" className="form-control"/>
+	                            </div>
+                                <div className="form-group">
+	                                <label>Email Address</label>
+	                                <input onChange={(e)=>{handle(e)}} type="text" id="email" className="form-control"/>
+	                            </div>
+	                            <div className="form-group">
+	                                <label> Password</label>
+	                                <input onChange={(e)=>{handle(e)}}  type="password" id="password" className="form-control"/>
+	                            </div>
+                                <div  style={{ fontSize: '10px' ,marginBottom: '0px'}}>
+                                    <center>
+                                    <i style={{marginBottom:"-1px",color:'red'}}>{error}</i>
+                                    </center>
+                                </div>
+	                            <div className="clearfix mb-3">
+	                                <div className="float-left" style = {{float:'left'}}>
+                                    <i style={{fontSize:'13px'}}>Already have an account <a style = {{textDecoration:'none'}} href="/login"> Sign In</a></i>
+	                                </div>
+	                                <div className="float-right" style ={{float:'right'}}>
+	                                    <a  style={{fontSize:'13px',textDecoration:'none'}}id="forgot" href="/forgetpassword">Forgot Password?</a>
+	                                </div>
+	                            </div>
+	                            <input type= 'submit' className = 'form-control success mb-3'  />
+	                        </form>
+                        <center>© 2021 ADDRIGO PROJECT - All Rights Reserved.</center>
+                        </div>
+
+        
+                <div className='col-sm-12 col-md-3 col-lg-4'>
+
+                </div>
+                
+
+            </div>
 </div>
 
     )
