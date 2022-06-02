@@ -8,7 +8,6 @@ import Nav from './nav'
 import Logo from './logo'
 function ContactUs() {
     const [data, setData ] = useState([])
-    const [error, setError ] = useState()
     const [ color, setcolor ] = useState('black'); 
     const [opacity, setOpacity]= useState(1)
     
@@ -28,7 +27,7 @@ function ContactUs() {
                 window.location.assign("http://localhost:3000/login")
                 
             }
-           if (response.data == 'success') {
+           if (response.data === 'success') {
                
                     alert('Email Sent, you would receive feedback shortly')
                     window.location.assign("http://localhost:3000/cart")
