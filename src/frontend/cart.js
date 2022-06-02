@@ -27,7 +27,7 @@ function Cart() {
                 const add = await axios.post('/addProductQty',{
                         productId:produdctId
                 })
-                if(add.data == 'success'){
+                if(add.data === 'success'){
                         console.log('Added successfully')
                 }else {
                         console.log('An error was encountered')
@@ -38,7 +38,7 @@ function Cart() {
                 const remove = await axios.post('/removeProductProperty',{
                         productId:getId
                 })
-                if(remove.data == 'success'){
+                if(remove.data === 'success'){
                         console.log("Removed successfully")
                 }else if(remove.data.success) {
                         console.log('Removed successfully')
@@ -51,11 +51,11 @@ function Cart() {
                     amount:productTotalPrice,
                     productId:productId
             })
-            if(sendPending.data == 'exist') {
+            if(sendPending.data === 'exist') {
                     alert('Cart payment pending')
                       window.location.assign('simplePaystackPaymentPageForAddriggo');
                 }
-                  else if(sendPending.data == 'success') {
+                  else if(sendPending.data === 'success') {
                          alert('payment loading')
                          window.location.assign('simplePaystackPaymentPageForAddriggo');
                         }
@@ -67,7 +67,7 @@ function Cart() {
                 const fetchUserCarts = async ()=>{
                         const res = await axios.get('/checkUser')
                         if(res.data === "invalid"){
-                            window.location.assign("http://localhost:3000/login")
+                            window.location.assign("http://localhost:3002/login")
                 
                         }else{
                                 const response = await axios.get('/queryCart')
