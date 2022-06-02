@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './style.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {fab, faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
+import {faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 
 
  
@@ -16,7 +16,7 @@ function Footer() {
         <div className = 'col- sm-12 col-md-6 col-lg-6'>
             <ul style = {{marginTop:'50px'}}>
                 <li className = 'nav nav-item'>
-                    <a className = 'nav-link' href = 'contactUs' style = {{color:'black',marginBottom:'0px',color:'white',fontSize:'25px'}}>Contact Us</a>
+                    <a className = 'nav-link' href = 'contactUs' style = {{marginBottom:'0px',color:'white',fontSize:'25px'}}>Contact Us</a>
                 </li>
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = 'marketingService' style = {{color:'black',marginBottom:'0px'}}>Marketing service</a>

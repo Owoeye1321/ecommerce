@@ -8,9 +8,9 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
 
 router.post('/',(req, res) =>{
    const sess = req.session
-      const username = req.body.username
-     const email = req.body.email
-   const password = req.body.password
+      const username = req.body.details.username
+     const email = req.body.details.email
+   const password = req.body.details.password
 
    const details = {
       username:username,
