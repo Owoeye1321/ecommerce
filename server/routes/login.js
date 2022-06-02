@@ -1,38 +1,34 @@
-const express = require('express')
-const mysqlConnection = require('mysql')
-//const loginValidation = 
-const router = express.Router()
-const con = mysqlConnection.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'addriggo',
-  })
-router.post('/', (req,res)=>{
-   
-            const username = req.body.details.username
-            const password = req.body.details.password
-            const sql = 'SELECT * from customers WHERE username = (?) AND password = (?)';
-            con.query(sql, [username, password], (err, result) => {
-                if (err) {
-                  console.log('unable to check data from the database' + err)   
-                } else if (result == '') {
-                    res.send('Invalid details')
-                  } else {
-                    const sess = req.session
-                    sess.user = req.body.details.username
-                  
-                    res.send(
-                     'success'
-                    )
-                  }
-                
-                
-        })
-    
-    })
-    
-    
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+   const uri = process.env.ATLAS_URI
 
+const router = require('express').Router()
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+router.post('/',(req, res) =>{
+   const sess = req.session
+         const username = req.body.details.username
+    const password = req.body.details.password
+
+      client.connect( async err => {
+         console.log('mongodb database connected successfully')
+             const collection = client.db("ecommerce").collection("users");
+             const result = await collection.findOne({ username: username, password: password})
+      if(result){
+         sess.user = username
+             res.send('success')
+         console.log("user exist")
+      } else {
+         console.log('user does not exist')
+           res.send('invalid')
+      }
+     
+      client.close();
+      });
+
+})
 
 module.exports = router
+
+
+

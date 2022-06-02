@@ -1,25 +1,23 @@
-const express = require('express')
-const router = express.Router()
-const sqlConnection = require('mysql')
-const con = sqlConnection.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'addriggo',
-  })
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+const uri = process.env.ATLAS_URI
+
+const { MongoClient, ServerApiVersion } = require('mongodb')
+      const router = require('express').Router()
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
   router.post('/',(req,res)=>{
      const productId = req.body.productId
      if(productId){
-        const sql = "DELETE FROM addToCart WHERE productId = ?"
-        con.query(sql,[productId],(err, data)=>{
-            if(!err){
-                res.send('success')
-                console.log(data)
-            }else{
-                console.log('An error has occured' +err)
-            }
-        })
+         client.connect(async err =>{
+             const collection = client.db('ecommerce').collection('addToCart')
+                const deleteItem = await collection.deleteOne({productId:productId})
+                if(deleteItem){
+                    res.send('success')
+                    console.log(deleteItem)
+                }else{
+                        console.log('An error has occured deleting the Item from the database')
+                }
+         })
      }
   })
 module.exports = router
