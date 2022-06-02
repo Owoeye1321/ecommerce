@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './style.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {fab, faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
+import {faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
 
 function Social() {
    const [ color, setcolor ] = useState('lightblue'); 
