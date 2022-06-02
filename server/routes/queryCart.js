@@ -10,7 +10,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
     if(sess.user){
         const customer_name = sess.user
         const status = "Delivered"
-        client.connect(async err=>{
+        client.connect(async err =>{
             const collection = client.db('ecommerce').collection('addToCart')
             const queryProduct = await collection.find({customer_name:customer_name, status:!status})
             if(queryProduct){
