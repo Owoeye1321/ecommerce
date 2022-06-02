@@ -1,48 +1,52 @@
-const express = require('express')
-const mysqlConnection = require('mysql')
-const router = express.Router()
-const con = mysqlConnection.createConnection({
-   host: 'localhost',
-   user: 'root',
-   password: '',
-   database: 'addriggo',
- })
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+const uri = process.env.ATLAS_URI
+
+const { MongoClient, ServerApiVersion } = require('mongodb')
+      const router = require('express').Router()
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
 router.post('/', (req, res )=>{
   
   sess = req.session
    if(sess.user){
       const customer_name =sess.user
          const  productId = req.body.productId
-         const productName = req.body.productName
-         const  productPrice = req.body.productPrice
-         const  productImage = req.body.productImage
+           const productName = req.body.productName
+             const  productPrice = req.body.productPrice
+            const  productImage = req.body.productImage
          const  productContent = req.body.productContent
-         const  productAbout = req.body.productAbout
+      const  productAbout = req.body.productAbout
          const qty = req.body.qty
-         const totalPrice = req.body.productPrice
-         
-         const status = "ordered";
-         const innersql = "SELECT * FROM addToCart WHERE customer_name = ? AND productId = ?"
-         con.query(innersql,[customer_name,productId],(outerErr, outerResult) => {
-           if(!outerErr){
-             if(outerResult.length){
-               res.send('exist')
+              const totalPrice = req.body.productPrice
+            const status = "ordered";
+       client.connect(async err=>{
+          const collection = client.db('ecommerce').collection('addToCart')
+          const checkIfExist = await collection.findOne({customer_name:customer_name, porductId:productId})
+          if(checkIfExist){
+             res.send('exist')
+             console.log('The item already exist in the cart')
+          }else{
+
+             const UpdateNewItem = await collection.insertOne({
+                customer_name:customer_name,
+                productId:productId,
+                productName:productName,
+                productPrice:productPrice,
+                productImage:productImage,
+                productContent:produceContent,
+                productAbout:productAbout,
+                status:status,
+                qty:qty,
+                totalPrice:totalPrice
+             })
+             if(UpdateNewItem){
+                res.send('success')
              }else{
-               const sql = "INSERT INTO addToCart (customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,total) VALUES (?,?,?,?,?,?,?,?,?,?) "
-               con.query(sql,[customer_name, productId, productName,productPrice, productImage ,productContent,productAbout,status,qty,totalPrice], (err,result)=>{
-                  if(!err){
-                     res.send("success")
-                  }
-                  else{
-                     console.log("An error has occured "+err)
-                  }
-               })
+                console.log('An error has occured while trying to save new item')
              }
-           }else{console.log(outerErr)}
-         })
-     
-
-
+          }
+          client.close();
+       })
    }else{
       res.send("invalid user")
    }

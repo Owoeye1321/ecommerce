@@ -1,45 +1,39 @@
-const express = require('express')
-const router = express.Router()
-const mysqlConnection = require('mysql')
-const con = mysqlConnection.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'addriggo',
-  })
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+const uri = process.env.ATLAS_URI
+
+const { MongoClient, ServerApiVersion } = require('mongodb')
+      const router = require('express').Router()
+   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
   router.post('/', (req, res )=>{
+      
       if(req.body.productId){
-
           const id = req.body.productId
-                    const sql = "SELECT qty, productPrice FROM addToCart WHERE productId = ?"
-                    con.query(sql,[id],(err, result)=>{
-                        if(!err){
-                            result.map((value)=>{
-                                const getQty = value.qty + 1
-                                const getTotal = value.productPrice
+            client.connect(async err =>{
+                const collection = client.db('ecommerce').collection('addToCart')
+                const selectSomeVariableFromAddToCart = await collection.findOne({productId:productId})
+                if(selectSomeVariableFromAddToCart){
+                    selectSomeVariableFromAddToCart.map((key)=>{
+                        const getQty = key.qty + 1;
+                           const getTotal = key.productPrice
                                 const sum = getQty * getTotal
-                                const customerId = req.body.productId
-                                const innerSql = "UPDATE addToCart SET qty = ?, total = ? where productId = ?"
-                                con.query(innerSql,[getQty,sum,customerId], (err, result)=>{
-                                    if(result){
-                                        res.send('success')
-                                        console.log(result)
-                                        console.log(customerId)
-                                    }
-                                })
-                               
-                            })
-
-
-                        }else{
-                            console.log('An error has occured'+ err)
+                             const customerId = req.body.productId
+                         const updateQtyAndTotal = await collection.update({productId:customerId},{$set:{qty:getQty, total:sum,}})
+                        if(updateQtyAndTotal){
+                            res.send('success')
+                            console.log(result)
+                            console.log(customerId)
                         }
                     })
+                }else{
+                    console.log('An error has ocurred')
+                }
+                client.close();
+            })
           
       }else{
           res.send('invalid')
       }
-     
   })
 
   module.exports = router
