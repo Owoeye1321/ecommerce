@@ -13,7 +13,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
                 const collection = client.db('ecommerce').collection('addToCart')
                 const selectSomeVariableFromAddToCart = await collection.findOne({productId:productId})
                 if(selectSomeVariableFromAddToCart){
-                    selectSomeVariableFromAddToCart.map((key)=>{
+                    selectSomeVariableFromAddToCart.map(async (key)=>{
                         const getQty = key.qty + 1;
                            const getTotal = key.productPrice
                                 const sum = getQty * getTotal
