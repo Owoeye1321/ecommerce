@@ -7,8 +7,7 @@ import Footer from './footer'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCcMastercard} from "@fortawesome/free-brands-svg-icons";
-import {faCartShopping, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { usePaystackPayment } from 'react-paystack';
+import {faCartShopping } from '@fortawesome/free-solid-svg-icons';
 function Cart() {
         const [products, setProducts ] = useState([])
         const [empty , setEmpty ] = useState()
@@ -19,7 +18,7 @@ function Cart() {
                 const remove = await axios.post('/deleteProduce',{
                         productId:getId
                 })
-                if(remove.data){
+                if(remove.data !== 'success'){
                         console.log('An error has occured')
                 }
         }
