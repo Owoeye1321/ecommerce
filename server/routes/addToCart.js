@@ -21,13 +21,15 @@ router.post('/', (req, res )=>{
               const totalPrice = req.body.productPrice
             const status = "ordered";
        client.connect(async err=>{
+          console.log('Connected to mongodb successfully')
+          console.log(productImage)
           const collection = client.db('ecommerce').collection('addToCart')
-          const checkIfExist =  collection.findOne({ customer_name:customer_name, porductId:productId })
+          const checkIfExist = await collection.findOne({ customer_name:customer_name, productId:productId})
           if(checkIfExist){
+             console.log(productImage)
              res.send('exist')
              console.log('The item already exist in the cart')
           }else{
-
              const UpdateNewItem = await collection.insertOne({
                 customer_name:customer_name,
                 productId:productId,
@@ -47,8 +49,9 @@ router.post('/', (req, res )=>{
                 console.log('An error has occured while trying to save new item')
              }
           }
-          client.close();
+         
        })
+      
    }else{
       res.send("invalid user")
    }
