@@ -1,6 +1,7 @@
 import Styles from './style.module.css'
 import React, { useState } from 'react';
 import axios from 'axios';
+
 export default function Product(props) {
     const [ color, setcolor ] = useState('lightblue'); 
     const {product} = props
@@ -12,8 +13,6 @@ export default function Product(props) {
 
         }else if(response.data === "valid")
         {
-          
-
             const addToCart = await axios.post('/addToCart',{
                 productId:product.id,
                 productName:product.name,
@@ -25,6 +24,7 @@ export default function Product(props) {
             })
             if(addToCart.data === "exist"){
                 alert('cart has already been added')
+                console.log(product.price)
             }else if(addToCart.data === "success")(
                 alert(" Item added, Kindly proceed to cart and purchase item ")
             )
