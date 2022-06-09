@@ -27,6 +27,7 @@ function Cart() {
                 const add = await axios.post('/addProductQty',{
                         productId:produdctId
                 })
+                alert('Processing...')
                 if(add.data === 'success'){
                         console.log('Added successfully')
                 }else {
@@ -38,6 +39,7 @@ function Cart() {
                 const remove = await axios.post('/removeProductProperty',{
                         productId:getId
                 })
+                alert('Processing...')
                 if(remove.data === 'success'){
                         console.log("Removed successfully")
                 }else if(remove.data.success) {
@@ -73,7 +75,6 @@ function Cart() {
                                 const response = await axios.get('/queryCart')
                                 if(response.data.length > 0){   
                                        setProducts(response.data)
-                                
                                         
                                 }else{
                                         console.log(response)
@@ -88,12 +89,15 @@ function Cart() {
                 }
                 const interval = setInterval (()=>{
                         fetchUserCarts()
-                },1000)
+                },2000)
         
                 return()=>{
                         clearInterval(interval)
                 }
         },[])
+        
+
+        console.log(products)
         
     
     return(
@@ -106,39 +110,51 @@ function Cart() {
                 <Nav/>
         </div>  
         <h3 style ={{marginLeft:'40px'}}>{empty}</h3>
-        <div className='row' style = {{marginTop:'50px',marginLeft:'50px',paddingRight:'60px'}}>
+          <div className='row' style = {{marginTop:'50px',marginLeft:'50px',paddingRight:'60px'}}>
         {products.map((product)=>{
                         return(
-                              
-                              
-                                        <div className='row' id = {Styles.productPrice}  key={product.productId}>
-                                        <div className='row-sm-12 col-md-5 col-lg-5' id = {Styles.productImage}>
-                                        <img name = 'productImage'  alt = "icon" src =  {product.productImage}
-                                                           style = {{width:'100%',height:'270px'}} />
-                                
-                                        
-                                        </div>
-                                        <div className='row-sm-12 col-md-7 col-lg-7' id = {Styles.productContent}>
-                                        <h3>{product.productName}</h3>
-                                        <h4 style ={{color:'lightgreen'}}>#{product.productPrice}</h4>
-                                        <p style = {{fontSize:'10px'}}>{product.productAbout}</p>
-                                        <p style = {{fontSize:'10px'}}>{product.productContent}</p>
-                                        {(product.qty !== 0) ?<strong> <i>Qty     X   {product.qty} = #{product.total} </i></strong> : <i>Add quantity</i> }
-                                        
-                                        
-                                        <br/>   <br/> 
-                                        <button className = 'btn btn-warning' style = {{marginRight:'10px'}} onClick={()=>{remove(product.productId)}}>-</button>
-                                        <button  className = 'btn btn-primary' onClick={()=>{add(product.productId)}} style ={{marginRight:'10px'}}>+</button>
-                                        <button  className = 'btn btn-danger' onClick={()=>{eradicate(product.productId)}}>Remove</button><br/>
-                                        <button onClick={()=>{cartSingle(product.productId , product.total)}} style ={{background:'lightgreen',marginRight:'20px', marginTop:'15px', border:'none',height:'40px',borderRadius:'10px',width:'100px',color:'white'}}>
-                                        <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>  </button> 
-                                        <FontAwesomeIcon icon={faCcMastercard} style ={{color:'black',marginRight:'10px'}}   size = 'xl'/><i>MasterCard</i>
-                                        
+        
+        
+                <div className='row' id = {Styles.productPrice}  key={product.productId}>
+                    <div className='row-sm-12 col-md-5 col-lg-5' id = {Styles.productImage}>
+                <img name = 'productImage'  alt = "icon" src =  {product.productImage}
+                                        style = {{width:'100%',height:'270px'}} />
+        
+                
+                </div>
+                <div className='row-sm-12 col-md-7 col-lg-7' id = {Styles.productContent}>
+                        <h3>{product.productName}</h3>
+                           <h4 style ={{color:'lightgreen'}}>#{product.productPrice}</h4>
+                      <p style = {{fontSize:'10px'}}>{product.productAbout}</p>
+                 <p style = {{fontSize:'10px'}}>{product.productContent}</p>
+                {( product.qty !== 0) ? <strong> <i>Qty     X   {product.qty} = #{product.totalPrice} </i></strong> : <i>Add quantity</i> }
+                
+                
+                <br/>   <br/> 
+                <button className = 'btn btn-warning' 
+                  style = {{marginRight:'10px'}} 
+                    onClick={()=>{remove(product.productId)}}>-
+                </button>
+                        <button  className = 'btn btn-primary' 
+                              onClick={()=>{add(product.productId)}} 
+                           style ={{marginRight:'10px'}}>+</button>
+                                <button  className = 'btn btn-danger' 
+                                  onClick={()=>{eradicate(product.productId)}}>Remove
+                                  </button><br/>
+                         <button onClick={()=>{cartSingle(product.productId , product.totalPrice)}} 
+                                style ={{background:'lightgreen',
+                                   marginRight:'20px', marginTop:'15px',
+                                     border:'none',height:'40px',
+                                  borderRadius:'10px',width:'100px',
+                                color:'white'}}>
+                <FontAwesomeIcon icon={faCartShopping} style ={{color:'white'}}   size = 'xl'/>  </button> 
+                       <FontAwesomeIcon icon={faCcMastercard} style ={{color:'black',marginRight:'10px'}}   size = 'xl'/><i>MasterCard</i>
+                
 
-                                        </div>
-                                       
-                                      
-                                    </div>
+                </div>
+                
+                
+                </div>
                         
                         )
                        
