@@ -18,6 +18,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
                         console.log('An error has occured deleting the Item from the database')
                 }
          })
+
      }
   })
 module.exports = router
