@@ -9,9 +9,10 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
     const sess = req.session
     sess.productId = req.body.productId
     sess.amount = req.body.amount
+    console.log(sess.amount)
     if(sess.user){
      const username = sess.user
-     const amount = req.body.amou
+     const amount = req.body.amount
      const productId = req.body.productId
      const status = 'pending'
      client.connect(async err => {
@@ -32,8 +33,9 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
         }
      }
 
-     client.close();
-    });
+   
+    })
+ 
 
   
    }
