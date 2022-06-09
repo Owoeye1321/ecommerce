@@ -11,24 +11,23 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
           const id = req.body.productId
             client.connect(async err =>{
                 const collection = client.db('ecommerce').collection('addToCart')
-                const selectSomeVariableFromAddToCart = await collection.findOne({productId:productId})
+                const selectSomeVariableFromAddToCart = await collection.findOne({productId:id})
                 if(selectSomeVariableFromAddToCart){
-                    selectSomeVariableFromAddToCart.map(async (key)=>{
-                        const getQty = key.qty + 1;
-                           const getTotal = key.productPrice
+                    console.log(selectSomeVariableFromAddToCart)
+                        const getQty = selectSomeVariableFromAddToCart.qty + 1;
+                           const getTotal = selectSomeVariableFromAddToCart.productPrice
                                 const sum = getQty * getTotal
                              const customerId = req.body.productId
-                         const updateQtyAndTotal = await collection.update({productId:customerId},{$set:{qty:getQty, total:sum,}})
+                         const updateQtyAndTotal = await collection.updateOne({productId:customerId},{$set:{qty:getQty, totalPrice:sum}})
                         if(updateQtyAndTotal){
                             res.send('success')
-                            console.log(result)
-                            console.log(customerId)
+                            console.log(updateQtyAndTotal)
                         }
-                    })
+                  
                 }else{
                     console.log('An error has ocurred')
                 }
-                client.close();
+                
             })
           
       }else{
