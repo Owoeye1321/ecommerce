@@ -1,7 +1,8 @@
 if (process.env.NODE_ENV !== "production") require('dotenv').config();
 const uri = process.env.ATLAS_URI
+const publicKey = process.env.PUBLIC_PAYSTACK_KEY
 
-const { MongoClient, ServerApiVersion, Collection } = require('mongodb')
+const { MongoClient, ServerApiVersion } = require('mongodb')
       const router = require('express').Router()
    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
@@ -28,7 +29,7 @@ const { MongoClient, ServerApiVersion, Collection } = require('mongodb')
       const deleteFromPending = await collectionForPending.deleteOne({customer:customer, productId:productId})
     if(deleteFromPending){
       const collectionForAddToCart = client.db('ecommerce').collection('addToCart')
-        const updateAddToCart = await collectionForAddToCart.update({customer_name:customer, productId:productId},{status:status})
+        const updateAddToCart = await collectionForAddToCart.updateOne({customer_name:customer, productId:productId},{status:status})
           if(updateAddToCart){
              const collectionForTransaction = client.db('ecommerce').collection('transaction')
                 const InsertNewTransaction  = await collectionForTransaction.insertOne({customer:customer, amount:amount, status:status})
@@ -46,8 +47,9 @@ const { MongoClient, ServerApiVersion, Collection } = require('mongodb')
       res.send('Unable to delete from pending')
       console.log('Unable to delete from pending')
     }
-    client.close();
+    
   })
+  client.close();
   }
   })
   module.exports = router
