@@ -23,8 +23,9 @@ router.post('/',(req, res) =>{
            res.send('invalid')
       }
      
+      
+      })
       client.close();
-      });
 
 })
 
