@@ -1,3 +1,5 @@
+if(process.env !== "production") require('dotenv')
+const publicKey = process.env.PUBLIC_PAYSTACK_KEY
 const client = require('../controller/client')   
       const router = require('express').Router()
 
