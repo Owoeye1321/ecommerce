@@ -1,11 +1,7 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const client = require('../controller/client')   
       const router = require('express').Router()
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-  router.post('/',(req, res )=>{
+  router.post('/',async (req, res )=>{
     const sess = req.session
     sess.productId = req.body.productId
     sess.amount = req.body.amount
@@ -15,7 +11,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
      const amount = req.body.amount
      const productId = req.body.productId
      const status = 'pending'
-     client.connect(async err => {
      const collection = client.db("ecommerce").collection("pending");
      const singlePayment = await collection.find({customer:username, productId:productId}).toArray()
      if(singlePayment.length){
@@ -32,11 +27,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
           console.log('Unable to save details')
         }
      }
-
-   
-    })
- 
-
   
    }
   })
