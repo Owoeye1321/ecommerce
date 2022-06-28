@@ -1,14 +1,9 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const client = require('../controller/client')   
       const router = require('express').Router()
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-  router.post('/',(req,res)=>{
+  router.post('/',async (req,res)=>{
      const productId = req.body.productId
      if(productId){
-         client.connect(async err =>{
              const collection = client.db('ecommerce').collection('addToCart')
                 const deleteItem = await collection.deleteOne({productId:productId})
                 if(deleteItem){
@@ -17,7 +12,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
                 }else{
                         console.log('An error has occured deleting the Item from the database')
                 }
-         })
 
      }
   })
