@@ -1,11 +1,7 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const client = require('../controller/client')   
       const router = require('express').Router()
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-router.post('/', (req, res )=>{
+router.post('/',async  (req, res )=>{
   
   sess = req.session
    if(sess.user){
@@ -20,8 +16,6 @@ router.post('/', (req, res )=>{
          const qty = req.body.qty
               const totalPrice = req.body.productPrice
             const status = "ordered";
-       client.connect(async err=>{
-          console.log('Connected to mongodb successfully')
           console.log(productImage)
           const collection = client.db('ecommerce').collection('addToCart')
           const checkIfExist = await collection.findOne({ customer_name:customer_name, productId:productId})
@@ -49,8 +43,6 @@ router.post('/', (req, res )=>{
                 console.log('An error has occured while trying to save new item')
              }
           }
-         
-       })
       
    }else{
       res.send("invalid user")
