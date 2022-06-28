@@ -1,12 +1,8 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const client = require('../controller/client')   
    const validator = require('../controller/validator')
       const router = require('express').Router()
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-router.post('/',(req, res) =>{
+router.post('/',async (req, res) =>{
    const sess = req.session
       const username = req.body.details.username
      const email = req.body.details.email
@@ -32,31 +28,25 @@ router.post('/',(req, res) =>{
           data:{err}
      })
      }else{
-
-client.connect(async err => {
-   console.log('mongodb database connected successfully')
-      const collection = client.db("ecommerce").collection("users");
-            const check = await collection.findOne({username:username})
-            if(check){
-                res.send('exist')
-            }else{
-                const result  = await collection.insertOne({username:username, email:email, password:password})
-                if(result){
-                       sess.user = username
-                          console.log('user saved')
-                     res.send('success')
-                }else{
-                   res.send('invalid')
-                   console.log('unable to save new user')
-                }
-            }
-
-       
-
+      const sign =async ()=>{
+         const collection = client.db("ecommerce").collection("users");
+         const check = await collection.findOne({username:username})
+         if(check){
+             res.send('exist')
+         }else{
+             const result  = await collection.insertOne({username:username, email:email, password:password})
+             if(result){
+                    sess.user = username
+                       console.log('user saved')
+                  res.send('success')
+             }else{
+                res.send('invalid')
+                console.log('unable to save new user')
+             }
+         }
+      }
+      sign()
    
-      })
-      client.close();
-  
      }
   })
 
