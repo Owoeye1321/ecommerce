@@ -1,15 +1,10 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-const uri = process.env.ATLAS_URI
-
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const client = require('../controller/client')   
       const router = require('express').Router()
-   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-  router.post('/', (req, res )=>{
+  router.post('/', async (req, res )=>{
       
       if(req.body.productId){
           const id = req.body.productId
-            client.connect(async err =>{
                 const collection = client.db('ecommerce').collection('addToCart')
                 const selectSomeVariableFromAddToCart = await collection.findOne({productId:id})
                 if(selectSomeVariableFromAddToCart){
@@ -27,9 +22,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb')
                 }else{
                     console.log('An error has ocurred')
                 }
-                
-            })
-          
           
       }else{
           res.send('invalid')
