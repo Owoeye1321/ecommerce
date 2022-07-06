@@ -67,7 +67,7 @@ function Cart() {
 
         useEffect(() =>{
                 const fetchUserCarts = async ()=>{
-                        const res = await axios.get('/checkUser')
+                        const res = await axios.get('https://addriggo-deploy-heroku.herokuapp.com//checkUser')
                         if(res.data === "invalid"){
                             window.location.assign("http://localhost:3002/login")
                 

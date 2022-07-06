@@ -35,7 +35,9 @@ app.use('/login', require('./routes/login'))
  app.use('/querySinglePaymentdetails',require('./routes/querySinglePaymentdetails'))
  app.use('/contactUs',require('./routes/sendMail'))
  app.use('/deleteProduce',require('./routes/deleteProduct'))
-
+app.get('/', (req, res)=>{
+  res.send('hello world')
+})
 
  app.all("*",(req, res, next)=>{
   res.send("Hello there, you seem to be on another undefined route")
