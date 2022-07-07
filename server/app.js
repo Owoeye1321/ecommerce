@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const bodyParser = require('body-parser')
 const app = express()
+// const cors = require('cors')
+// app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
@@ -23,7 +25,7 @@ app.use(function(req,res,next){
   }
   next() //otherwise continue
   });
-const PORT = 5000
+const PORT =process.env.PORT ||  5000
 app.use('/login', require('./routes/login'))
  app.use('/signUp', require ('./routes/signUp'))  
  app.use('/addToCart', require ('./routes/addToCart'))
@@ -34,17 +36,18 @@ app.use('/login', require('./routes/login'))
  app.use('/singlePayment',require('./routes/singlePayment'))
  app.use('/querySinglePaymentdetails',require('./routes/querySinglePaymentdetails'))
  app.use('/contactUs',require('./routes/sendMail'))
+
  app.use('/deleteProduce',require('./routes/deleteProduct'))
 app.get('/', (req, res)=>{
   res.send('hello world')
 })
 
- app.all("*",(req, res, next)=>{
-  res.send("Hello there, you seem to be on another undefined route")
-  next()
-})
+//  app.all("*",(req, res, next)=>{
+//   res.send("Hello there, you seem to be on another undefined route")
+//   next()
+// })
 
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
     console.log('Listening to port' + ' ' + PORT)
   })  
