@@ -21,9 +21,9 @@ function LogIn() {
             username:data.username,
             password:data.password
         }
-        const result = await axios.post('/login',{details})
+        const result = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/login',{details})
         if(result.data === 'success'){
-            window.location.assign('http://localhost:3002/pricing')
+            window.location.assign('https://silly-fermi-dfbf11.netlify.app/pricing')
         }else{
             setError('invalid details')
             console.log(result.data)
