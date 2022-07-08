@@ -23,7 +23,7 @@ function LogIn() {
         }
         const result = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/login',{details})
         if(result.data === 'success'){
-            window.location.assign('https://silly-fermi-dfbf11.netlify.app/pricing')
+            window.location.assign('https://addrigo-app-f2f26b.netlify.app/pricing')
         }else{
             setError('invalid details')
             console.log(result.data)

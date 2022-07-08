@@ -3,10 +3,10 @@
     "node": "14.17.3"
   },
   "dependencies": {
-    "nodemon": "^2.0.19",
     "api": "^4.2.1",
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-fileupload": "^1.3.1",
@@ -15,6 +15,7 @@
     "mongodb": "^4.7.0",
     "mysql": "^2.18.1",
     "nodemailer": "^6.7.4",
+    "nodemon": "^2.0.19",
     "validatorjs": "^3.22.1"
   },
   "name": "index",
