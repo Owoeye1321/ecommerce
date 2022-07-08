@@ -69,7 +69,7 @@ function Cart() {
                 const fetchUserCarts = async ()=>{
                         const res = await axios.get('https://addriggo-deploy-heroku.herokuapp.com/checkUser')
                         if(res.data === "invalid"){
-                            window.location.assign("http://localhost:3002/login")
+                            window.location.assign("https://addrigo-app-f2f26b.netlify.app/login")
                 
                         }else{
                                 const response = await axios.get('/queryCart')
