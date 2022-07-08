@@ -7,13 +7,13 @@ export default function Product(props) {
     const {product} = props
 
     const verify_and_Add_key = async()=>{
-        const response = await axios.get('/checkUser')
+        const response = await axios.get('https://addriggo-deploy-heroku.herokuapp.com/checkUser')
         if(response.data === "invalid"){
-            window.location.assign("http://localhost:3002/login")
+            window.location.assign("https://addrigo-app-f2f26b.netlify.app/login")
 
         }else if(response.data === "valid")
         {
-            const addToCart = await axios.post('/addToCart',{
+            const addToCart = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/addToCart',{
                 productId:product.id,
                 productName:product.name,
                 productPrice:product.price,

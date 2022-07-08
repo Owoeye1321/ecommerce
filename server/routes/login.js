@@ -11,6 +11,14 @@ router.post('/',async (req, res) =>{
          sess.user = username
              res.send('success')
          console.log("user exist")
+
+            const interval = setInterval (()=>{
+                       console.log(sess.user)
+                },2000)
+        
+                return()=>{
+                        clearInterval(interval)
+                }
       } else {
          console.log('user does not exist')
            res.send('invalid')
