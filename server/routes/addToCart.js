@@ -6,6 +6,7 @@ router.post('/',async  (req, res )=>{
   sess = req.session
    if(sess.user){
       console.log('keeping track')
+      console.log(sess.user)
       const customer_name =sess.user
          const  productId = req.body.productId
            const productName = req.body.productName
