@@ -25,8 +25,6 @@ function LogIn() {
         if(result.data === 'success'){
             window.location.assign('https://addrigo-app-f2f26b.netlify.app/pricing')
         
-        }else if(result.data === 'exist'){
-            setError('User exist')
         }else{
             setError('invalid details')
             console.log(result.data)

@@ -33,6 +33,7 @@ router.post('/',async (req, res) =>{
          const check = await collection.findOne({username:username})
          if(check){
              res.send('exist')
+             console.log('User exist')
          }else{
              const result  = await collection.insertOne({username:username, email:email, password:password})
              if(result){
