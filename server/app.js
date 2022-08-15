@@ -1,23 +1,33 @@
+if (process.env.NODE_ENV !== "production") require('dotenv').config();
+   const uri = process.env.ATLAS_URI
+
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+const MongoStore = require('connect-mongo');
 const app = express()
-const cors = require('cors')
+const cors = require('cors');
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-const oneDay = 1000 * 60 * 60 * 24;
+const oneDay =  24 * 60 * 60 * 1000 
+app.set('trust proxy', 1)
 app.use(session({
-  cookie:{
-    secure: true,
-    maxAge:60000
-       },
+  proxy:true,
   secret:"OwoeyeSamuelOlamide",
-  saveUninitialized:true,
-  cookie:{maxAge:oneDay},
-  resave:false
+  saveUninitialized:false,
+  resave:false,
+  cookie:{        
+    maxAge:oneDay
+   },  
+  store: MongoStore.create({
+    mongoUrl: uri,
+    dbName: "ecommerce",
+    stringify: true,
+    autoRemove:'native'
+  })
 }))
 app.use(function(req,res,next){
   if(!req.session){
