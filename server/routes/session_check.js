@@ -2,13 +2,18 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/',(req,res)=>{
-   const sess= req.session
-   if (sess.user !== "") {
+    console.log(req.session.user)
+   if(req.session.user){
+    console.log(req.session)
        res.send('valid')
        console.log('User authenticated')
+       console.log(req.session.user)
    }else{
        res.send('invalid')
-        console.log('Invalid user')
+        console.log({
+            status:"Session is empty",
+            state:req.session
+        })
    }
 })
 module.exports = router
