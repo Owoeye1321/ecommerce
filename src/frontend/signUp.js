@@ -23,7 +23,7 @@ function SignUp() {
             email:data.email,
             password:data.password
         }
-        const result = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/login',{details})
+        const result = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/signUp',{details})
         if(result.data === 'success'){
             window.location.assign('https://addrigo-app-f2f26b.netlify.app/pricing')
         }else{
