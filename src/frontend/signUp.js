@@ -23,9 +23,9 @@ function SignUp() {
             email:data.email,
             password:data.password
         }
-        const result = await axios.post('/signup',{details})
+        const result = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/login',{details})
         if(result.data === 'success'){
-            window.location.assign('http://localhost:3002/cart')
+            window.location.assign('https://addrigo-app-f2f26b.netlify.app/pricing')
         }else{
             setError('invalid details')
             console.log(result.data)
