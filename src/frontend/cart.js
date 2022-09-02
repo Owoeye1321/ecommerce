@@ -27,7 +27,7 @@ function Cart() {
                 const add = await axios.post('/addProductQty',{
                         productId:produdctId
                 })
-                alert('Processing...')
+               
                 if(add.data === 'success'){
                         console.log('Added successfully')
                 }else {
@@ -39,7 +39,7 @@ function Cart() {
                 const remove = await axios.post('/removeProductProperty',{
                         productId:getId
                 })
-                alert('Processing...')
+               
                 if(remove.data === 'success'){
                         console.log("Removed successfully")
                 }else if(remove.data.success) {
@@ -67,29 +67,24 @@ function Cart() {
 
         useEffect(() =>{
                 const fetchUserCarts = async ()=>{
-                        const res = await axios.get('https://addriggo-deploy-heroku.herokuapp.com/checkUser')
+                        const res = await axios.get('/checkUser')
                         if(res.data === "invalid"){
-                            window.location.assign("https://addrigo-app-f2f26b.netlify.app/login")
+                            window.location.assign("http://localhost:3002/login")
                 
                         }else{
-                                const response = await axios.get('/queryCart')
-                                if(response.data.length > 0){   
-                                       setProducts(response.data)
-                                        
-                                }else{
-                                        console.log(response)
-                                        console.log('cart empty')
-                                        setEmpty('Cart is empty')
-                                }
-                             
-                                
+                           await axios.get('/queryCart').then((res)=>{
+                                setProducts(res.data)
+                                console.log(res.data)
+                                }).catch((err)=>{
+                                        console.log('An error has occured' , err)
+                                })
+   
                         }
-                
 
                 }
                 const interval = setInterval (()=>{
                         fetchUserCarts()
-                },2000)
+                },1000)
         
                 return()=>{
                         clearInterval(interval)
@@ -111,7 +106,10 @@ function Cart() {
         </div>  
         <h3 style ={{marginLeft:'40px'}}>{empty}</h3>
           <div className='row' style = {{marginTop:'50px',marginLeft:'50px',paddingRight:'60px'}}>
-        {products.map((product)=>{
+        { products.length ? products.map((product)=>{
+                
+                //    const blob = new Blob([Int8Array.from(product.productImage.data.data)], {type: product.productImage.contentType });
+                //    const image = window.URL.createObjectURL(blob);
                         return(
         
         
@@ -158,7 +156,11 @@ function Cart() {
                         
                         )
                        
-                    })}
+                    }):
+                    <>
+                    <h1>NO CART ITEMS</h1>
+                    </>}
+                    
 
                     
                 

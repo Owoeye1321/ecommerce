@@ -5,10 +5,8 @@ const router =  express.Router()
 
 router.post('/',(req,res) =>{
     const sess = req.session
-    if(sess.user){
-
-
-    const username = sess.user
+    if(sess.username){
+    const username = sess.username
     const to = "Owoeye1321@gmail.com"
     const from = req.body.details.email
     const subject = "Delivery address of addriggo ordered product"

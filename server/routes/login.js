@@ -1,45 +1,36 @@
 const router = require('express').Router()
-const client = require('../controller/client')   
+const userModel = require('../model/userModel')
 
-router.post('/',async (req, res) =>{
+router.post('/', (req, res) =>{
+   console.log(req.body)
+   const sess = req.session
          const username = req.body.details.username
     const password = req.body.details.password
-             const collection = client.db("ecommerce").collection("users");
-             const result = await collection.findOne({ username: username, password: password})
-      if(result){
-         req.session.user = username
-         req.session.save( err =>{
-            if(err){
-               console.log("An error has occured")
-            }else{
-               res.send('success')
-               console.log(req.session.user)
-               console.log(req.session)
-               console.log("The session has been saved and successfully stored")
-            }
-         })
 
-         // sess.user = username
-         // if(sess.user){
-         //    res.send('success')
-         // console.log("user exist")
-
-         //    const interval = setInterval (()=>{
-         //               console.log(sess.user)
-         //        },60000)
-         //        return()=>{
-         //                clearInterval(interval)
-         //        }
-         // }else{
-         //    res.send('Unable to save')
-         //    console.log("Unable to create a session for the current user")
-         // }
-             
-      } else {
-         console.log('user does not exist')
-           res.send('invalid')
-      }
+    const login = new userModel({
+      username:username,
+      password:password,
+  })
+  //checking if a user exist
+      userModel.exists({username:username, password:password}, (err, result)=>{
+         if(result){
+            req.session.username = username
+            req.session.save((badestErr, baddestResult)=>{
+               if(!badestErr){
+                  console.log('Session has been saved')
+                  console.log(req.session)
+                  console.log('The session id is ', req.session.username)
+               }
+            })
+            res.send('success')
+            console.log('The user exist')
+         }else{
+            res.send('invalid')
+            console.log('The user does not exist')
+         }
+      })
 
 })
 
 module.exports = router
+

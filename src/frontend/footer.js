@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import styles from './style.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +8,14 @@ import {faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@forta
 
  
 function Footer() {
+    const LogOut = async()=>{
+        alert('logging out')
+        const logUserOut = await axios.get('/logOut')
+        if(logUserOut.data === "success"){
+          window.location.assign('http://localhost:3000/login')
+        }
+      }
+
     const [ color, setcolor ] = useState('lightblue'); 
     return(
         <div className = ' bg-dark'  style = {{marginTop:'50px',width:'100%'}}>
@@ -134,7 +143,10 @@ function Footer() {
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = 'login' style = {{color:'black',marginBottom:'0px'}}>Login</a>
                 </li>
-
+                <li className = 'nav nav-item'>
+                <strong style={{color:"white"}} onClick={()=>{LogOut()}}>LogOut</strong>
+                </li>
+                
                 <li className = 'nav nav-item'>
                     <a className = 'nav-link' href = '#' style = {{color:'black',marginBottom:'0px'}}>Contact Developer</a>
                 </li>

@@ -1,5 +1,5 @@
-if (process.env.NODE_ENV !== "production") require('dotenv').config();
-   const uri = process.env.ATLAS_URI
+ require('dotenv').config();
+   const uri = process.env.ATLAS_URI_FOR_OWOEYE
 
 const express = require('express')
 const cookieParser = require('cookie-parser')
@@ -46,8 +46,9 @@ app.use('/login', require('./routes/login'))
  app.use('/singlePayment',require('./routes/singlePayment'))
  app.use('/querySinglePaymentdetails',require('./routes/querySinglePaymentdetails'))
  app.use('/contactUs',require('./routes/sendMail'))
-
+ app.use('/logOut', require('./routes/logOut'))
  app.use('/deleteProduce',require('./routes/deleteProduct'))
+
 app.get('/', (req, res)=>{
   res.send('hello world')
 })

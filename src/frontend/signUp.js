@@ -23,13 +23,13 @@ function SignUp() {
             email:data.email,
             password:data.password
         }
-        const result = await axios.post('https://addriggo-deploy-heroku.herokuapp.com/signUp',{details})
+        const result = await axios.post('/signUp',{details})
         if(result.data === 'success'){
-            window.location.assign('https://addrigo-app-f2f26b.netlify.app/pricing')
+            window.location.assign('http://localhost:3002/pricing')
             
         }else if(result.data === 'exist'){
             setError('User exist')
-        }else{
+        } else{
             setError('invalid details')
             console.log(result.data)
         }
@@ -47,7 +47,7 @@ function SignUp() {
                 </div>
                 <div className='col-sm-12 col-md-6 col-lg-4' style = {{padding:'150px 50px 50px 50px'}}>
 	                
-	                        <h4 className="mb-3">Login</h4>
+	                        <h4 className="mb-3">Sign Up</h4>
 	                        <form className="input_style_1" onSubmit={(e)=>{submit(e)}}>
 	                            <div className="form-group">
 	                                <label>Username</label>
