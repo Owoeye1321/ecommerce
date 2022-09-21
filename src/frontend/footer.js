@@ -10,7 +10,7 @@ import {faTwitterSquare, faFacebook, faLinkedin, faInstagramSquare} from "@forta
 function Footer() {
     const LogOut = async()=>{
         alert('logging out')
-        const logUserOut = await axios.get('/logOut')
+        const logUserOut = await axios.get('https://addrigo-api-1999.herokuapp.com//logOut')
         if(logUserOut.data === "success"){
             localStorage.clear()
           window.location.assign('https://addrigo-app-f2f26b.netlify.app/login')
