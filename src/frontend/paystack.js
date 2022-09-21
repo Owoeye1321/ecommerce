@@ -12,7 +12,7 @@ const [details, setDetails ] = useState([])
 
         useEffect(()=>{
             const response = async ()=>{
-                const request = await axios.get('/querySinglePaymentdetails')
+                const request = await axios.get('https://addrigo-api-1999.herokuapp.com/querySinglePaymentdetails')
                 if(request.data){
                   setDetails(request.data)
                 }
@@ -33,7 +33,7 @@ const onSuccess = (reference) => {
  // Implementation for whatever you want to do with reference and after success call.
  const eradicate = async ()=>{
 
-  const remove = await axios.post('/deleteProduce',{
+  const remove = await axios.post('https://addrigo-api-1999.herokuapp.com/deleteProduce',{
           productId:productId,
           username:localStorage.getItem('username')
   })

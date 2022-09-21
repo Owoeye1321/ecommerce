@@ -7,7 +7,7 @@ export default function Product(props) {
     const {product} = props
 
     const verify_and_Add_key = async()=>{
-        const response = await axios.post('/checkUser',{username:localStorage.getItem('username')})
+        const response = await axios.post('https://addrigo-api-1999.herokuapp.com/checkUser',{username:localStorage.getItem('username')})
         if(response.data === "failed"){
             window.location.assign("https://addrigo-app-f2f26b.netlify.app/login")
 

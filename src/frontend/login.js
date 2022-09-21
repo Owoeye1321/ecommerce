@@ -21,7 +21,7 @@ function LogIn() {
             username:data.username,
             password:data.password
         }
-        const result = await axios.post('/login',{details})
+        const result = await axios.post('https://addrigo-api-1999.herokuapp.com/login',{details})
         if(result.data === 'success'){
             localStorage.setItem('username',details.username)
             window.location.assign('hhttps://addrigo-app-f2f26b.netlify.app/pricing')

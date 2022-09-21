@@ -15,7 +15,7 @@ function Cart() {
      
         const eradicate = async (getId)=>{
 
-                const remove = await axios.post('/deleteProduce',{
+                const remove = await axios.post('https://addrigo-api-1999.herokuapp.com/deleteProduce',{
                         productId:getId,
                         username:localStorage.getItem('username')
                 })
@@ -25,7 +25,7 @@ function Cart() {
         }
 
         const add = async (produdctId)=>{ 
-                const add = await axios.post('/addProductQty',{
+                const add = await axios.post('https://addrigo-api-1999.herokuapp.com/addProductQty',{
                         productId:produdctId,
                         username:localStorage.getItem('username')
                 })
@@ -38,7 +38,7 @@ function Cart() {
                 
         }
         const remove = async (getId)=>{
-                const remove = await axios.post('/removeProductProperty',{
+                const remove = await axios.post('https://addrigo-api-1999.herokuapp.com/removeProductProperty',{
                         productId:getId,
                         username:localStorage.getItem('username')
                 })
@@ -50,7 +50,7 @@ function Cart() {
         const cartSingle = async (getId ,totalPrice)=>{
             const productTotalPrice = totalPrice
             const productId = getId
-            const sendPending = await axios.post('/singlePayment',{
+            const sendPending = await axios.post('https://addrigo-api-1999.herokuapp.com/singlePayment',{
                     amount:productTotalPrice,
                     productId:productId,
                     username:localStorage.getItem('username')
@@ -69,12 +69,12 @@ function Cart() {
 
         useEffect(() =>{
                 const fetchUserCarts = async ()=>{
-                        const res = await axios.post('/checkUser',{username:localStorage.getItem('username')})
+                        const res = await axios.post('https://addrigo-api-1999.herokuapp.com/checkUser',{username:localStorage.getItem('username')})
                         if(res.data === "failed"){
                             window.location.assign("https://addrigo-app-f2f26b.netlify.app/login")
                 
                         }else{
-                           await axios.post('/queryCart',{username:localStorage.getItem('username')}).then((res)=>{
+                           await axios.post('https://addrigo-api-1999.herokuapp.com/queryCart',{username:localStorage.getItem('username')}).then((res)=>{
                                 setProducts(res.data)
                              //   console.log(res.data)
                                 }).catch((err)=>{
