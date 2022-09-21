@@ -13,7 +13,7 @@ function Footer() {
         const logUserOut = await axios.get('/logOut')
         if(logUserOut.data === "success"){
             localStorage.clear()
-          window.location.assign('http://localhost:3000/login')
+          window.location.assign('https://addrigo-app-f2f26b.netlify.app/login')
         }
       }
 
