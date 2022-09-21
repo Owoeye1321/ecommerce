@@ -26,7 +26,7 @@ function Social() {
                </div>
                <div id = {styles.social_div}>
                    <center>
-                        <a href = "#">
+                        <a href = "https://twitter.com/owoeye1321">
                         <FontAwesomeIcon icon={faTwitterSquare} style ={{color:'lightgreen'}} size = 'xl'/>
                         </a>   
                    </center>
@@ -42,7 +42,7 @@ function Social() {
                </div>
                <div id = {styles.social_div}>
                    <center>
-                        <a href = "#">
+                        <a href = "https://www.linkedin.com/in/owoeye-samuel-72612918a/">
                         <FontAwesomeIcon icon={faLinkedin} style ={{color:'lightgreen'}}  size = 'xl'/>
                         </a>   
                    </center>
