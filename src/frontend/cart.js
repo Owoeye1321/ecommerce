@@ -16,7 +16,8 @@ function Cart() {
         const eradicate = async (getId)=>{
 
                 const remove = await axios.post('/deleteProduce',{
-                        productId:getId
+                        productId:getId,
+                        username:localStorage.getItem('username')
                 })
                 if(remove.data !== 'success'){
                         console.log('An error has occured')
@@ -25,7 +26,8 @@ function Cart() {
 
         const add = async (produdctId)=>{ 
                 const add = await axios.post('/addProductQty',{
-                        productId:produdctId
+                        productId:produdctId,
+                        username:localStorage.getItem('username')
                 })
                
                 if(add.data === 'success'){
@@ -37,28 +39,28 @@ function Cart() {
         }
         const remove = async (getId)=>{
                 const remove = await axios.post('/removeProductProperty',{
-                        productId:getId
+                        productId:getId,
+                        username:localStorage.getItem('username')
                 })
-               
                 if(remove.data === 'success'){
                         console.log("Removed successfully")
-                }else if(remove.data.success) {
-                        console.log('Removed successfully')
                 }else{console.log("An error has occured") }
         }
+
         const cartSingle = async (getId ,totalPrice)=>{
             const productTotalPrice = totalPrice
             const productId = getId
             const sendPending = await axios.post('/singlePayment',{
                     amount:productTotalPrice,
-                    productId:productId
+                    productId:productId,
+                    username:localStorage.getItem('username')
             })
+            localStorage.setItem('productId', productId)
+            localStorage.setItem('amount', productTotalPrice)
             if(sendPending.data === 'exist') {
-                    alert('Cart payment pending')
                       window.location.assign('simplePaystackPaymentPageForAddriggo');
                 }
                   else if(sendPending.data === 'success') {
-                         alert('payment loading')
                          window.location.assign('simplePaystackPaymentPageForAddriggo');
                         }
           
@@ -67,14 +69,14 @@ function Cart() {
 
         useEffect(() =>{
                 const fetchUserCarts = async ()=>{
-                        const res = await axios.get('/checkUser')
-                        if(res.data === "invalid"){
+                        const res = await axios.post('/checkUser',{username:localStorage.getItem('username')})
+                        if(res.data === "failed"){
                             window.location.assign("http://localhost:3002/login")
                 
                         }else{
-                           await axios.get('/queryCart').then((res)=>{
+                           await axios.post('/queryCart',{username:localStorage.getItem('username')}).then((res)=>{
                                 setProducts(res.data)
-                                console.log(res.data)
+                             //   console.log(res.data)
                                 }).catch((err)=>{
                                         console.log('An error has occured' , err)
                                 })
@@ -82,18 +84,17 @@ function Cart() {
                         }
 
                 }
-                const interval = setInterval (()=>{
-                        fetchUserCarts()
-                },1000)
-        
-                return()=>{
-                        clearInterval(interval)
-                }
-        },[])
-        
 
-        console.log(products)
+                fetchUserCarts()
+                // const interval = setInterval (()=>{
+                //         fetchUserCarts()
+                // },1000)
         
+                // return()=>{
+                //         clearInterval(interval)
+                // }
+        },[products])
+
     
     return(
     <div>

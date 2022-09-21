@@ -6,7 +6,8 @@ import Styles from './style.module.css'
 
 function App() {
 
-
+const amount = localStorage.getItem('amount')
+const productId = localStorage.getItem('productId')
 const [details, setDetails ] = useState([])
 
         useEffect(()=>{
@@ -17,34 +18,49 @@ const [details, setDetails ] = useState([])
                 }
             }
             response()
-             },[])
-           const real_amount = details.amount * 100
+             },[details])
+           const real_amount = amount * 100
     const config = {
         reference: (new Date()).getTime().toString(),
         email: "Owoeye1321@gmail.com",
         amount:real_amount,
         publicKey: details.publicKey,
     };
-   console.log(config)
+  // console.log(config)
     
 // you can call this function anything
 const onSuccess = (reference) => {
-  // Implementation for whatever you want to do with reference and after success call.
-  console.log(reference);
+ // Implementation for whatever you want to do with reference and after success call.
+ const eradicate = async ()=>{
+
+  const remove = await axios.post('/deleteProduce',{
+          productId:productId,
+          username:localStorage.getItem('username')
+  })
+  if(remove.data){
+    window.location.assign("http://localhost:3002/cart")
+  }
+}
+eradicate()
+  
 };
 
 // you can call this function anything
 const onClose = () => {
   // implementation for  whatever you want to do when the Paystack dialog closed.
-  console.log('closed')
+  
+      console.log('closed')
+
 }
+
+
 
 const PaystackHookExample = () => {
     const initializePayment = usePaystackPayment(config);
     return (
       <div>
         <center><button className = 'btn btn-primary' onClick={() => {
-                 initializePayment(onSuccess, onClose)
+                 initializePayment(onSuccess, onClose )
                }}>Proceed to payment</button></center>
           
       </div>

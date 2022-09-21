@@ -8,13 +8,13 @@ const publicKey = process.env.PUBLIC_PAYSTACK_KEY
 
   router.get('/',async (req, res)=>{
 
-   if(req.session.username){
+
     res.json({ 
       publicKey:publicKey,
-      amount:req.session.amount,
-      productId:req.session.productId
+    //   amount:req.session.amount,
+    //   productId:req.session.productId
     })
-   }
+
   })
 
   router.post('/',(req, res) => {

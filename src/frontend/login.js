@@ -23,7 +23,8 @@ function LogIn() {
         }
         const result = await axios.post('/login',{details})
         if(result.data === 'success'){
-            window.location.assign('http://localhost:3002/pricing')
+            localStorage.setItem('username',details.username)
+            window.location.assign('hhttps://addrigo-app-f2f26b.netlify.app/pricing')
         
         }else{
             setError('invalid details')

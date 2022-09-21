@@ -12,6 +12,7 @@ function Footer() {
         alert('logging out')
         const logUserOut = await axios.get('/logOut')
         if(logUserOut.data === "success"){
+            localStorage.clear()
           window.location.assign('http://localhost:3000/login')
         }
       }

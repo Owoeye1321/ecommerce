@@ -25,7 +25,7 @@ function SignUp() {
         }
         const result = await axios.post('/signUp',{details})
         if(result.data === 'success'){
-            window.location.assign('http://localhost:3002/pricing')
+            window.location.assign('https://addrigo-app-f2f26b.netlify.app/pricing')
             
         }else if(result.data === 'exist'){
             setError('User exist')

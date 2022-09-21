@@ -7,11 +7,11 @@ export default function Product(props) {
     const {product} = props
 
     const verify_and_Add_key = async()=>{
-        const response = await axios.get('/checkUser')
-        if(response.data === "invalid"){
-            window.location.assign("/login")
+        const response = await axios.post('/checkUser',{username:localStorage.getItem('username')})
+        if(response.data === "failed"){
+            window.location.assign("http://localhost:3002/login")
 
-        }else if(response.data === "valid")
+        }else if(response.data === "success")
         {
             const addToCart = await axios.post('/addToCart', {
                 productId:product.id,
@@ -20,7 +20,8 @@ export default function Product(props) {
                 productImage:product.image,
                 productContent:product.otherContent,
                 productAbout:product.aboutProduct,
-                qty:1
+                qty:1,
+                username:localStorage.getItem('username')
             })
             if(addToCart.data === "exist"){
                 alert('cart has already been added')

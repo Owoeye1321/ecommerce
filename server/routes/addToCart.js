@@ -4,10 +4,9 @@ const addToCart = require('../model/addToCartModel')
 
 router.post('/',async  (req, res )=>{
 
-   if(req.session.username){
-      console.log('keeping track')
-      console.log(req.session.username)
-      const customer_name =req.session.username
+   if(req.body.username){
+
+      const customer_name =req.body.username
          const  productId = req.body.productId
            const productName = req.body.productName
              const  productPrice = req.body.productPrice

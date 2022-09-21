@@ -1,18 +1,24 @@
-const express = require('express')
-const router = express.Router()
+const router = require ('express').Router()
+// router.get('/',(req, res)=>{
+//     if(req.session.username){
+//         console.log(req.session)
+//         res.send('success')
+//     }else{
+//         console.log(req.session)
+//         res.send('failed')
+//     }
+// })
 
-router.get('/',(req,res)=>{
-    console.log(req.session)
-   if(req.session.username){
-    console.log(req.session.username)
-       res.send('valid')
-       console.log('User authenticated')
-   }else{
-       res.send('invalid')
-        console.log({
-            status:"Session is empty",
-            state:req.session
-        })
-   }
+router.post('/',( req, res)=>{
+    //console.log(req.body)
+    if(!req.body.username){
+        console.log(req.body)
+        console.log('failed')
+        res.send('failed')
+        
+    }else{
+       // console.log(req.body.username)
+            res.send('success')
+    }
 })
 module.exports = router

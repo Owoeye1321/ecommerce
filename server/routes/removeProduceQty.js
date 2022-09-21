@@ -3,8 +3,8 @@
 
   router.post('/', async (req, res )=>{
       console.log("Working on tree clean",req.body)
-      if(req.body.productId && req.session.username){
-        const username = req.session.username
+      if(req.body.productId && req.body.username){
+        const username = req.body.username
           const id = req.body.productId
           console.log(id)
           const selectSomeVariableFromAddToCart = await addToCartModel.find({ productId:id , customer_name:username })
