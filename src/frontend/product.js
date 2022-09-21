@@ -13,7 +13,7 @@ export default function Product(props) {
 
         }else if(response.data === "success")
         {
-            const addToCart = await axios.post('/addToCart', {
+            const addToCart = await axios.post('https://addrigo-api-1999.herokuapp.com/addToCart', {
                 productId:product.id,
                 productName:product.name,
                 productPrice:product.price,
