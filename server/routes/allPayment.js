@@ -1,1 +1,0 @@
-const nameOfDepartmentInEngineering = ['civil','mechanical','material science','aeronautics']
