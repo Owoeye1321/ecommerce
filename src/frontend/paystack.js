@@ -38,7 +38,7 @@ const onSuccess = (reference) => {
           username:localStorage.getItem('username')
   })
   if(remove.data){
-    window.location.assign("http://localhost:3002/cart")
+    window.location.assign("https://addrigo-app-f2f26b.netlify.app/cart")
   }
 }
 eradicate()

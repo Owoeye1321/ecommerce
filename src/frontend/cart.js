@@ -71,7 +71,7 @@ function Cart() {
                 const fetchUserCarts = async ()=>{
                         const res = await axios.post('/checkUser',{username:localStorage.getItem('username')})
                         if(res.data === "failed"){
-                            window.location.assign("http://localhost:3002/login")
+                            window.location.assign("https://addrigo-app-f2f26b.netlify.app/login")
                 
                         }else{
                            await axios.post('/queryCart',{username:localStorage.getItem('username')}).then((res)=>{
